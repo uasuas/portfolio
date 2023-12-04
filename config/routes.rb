@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
 
+
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :admin do
+    get 'line_plans/new'
+    get 'line_plans/index'
+    get 'line_plans/show'
+    get 'line_plans/edit'
+  end
+  namespace :admin do
+    get 'companies/new'
+    get 'companies/index'
+    get 'companies/show'
+    get 'companies/edit'
+  end
   devise_for :customers,skip: %i[passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -32,7 +50,7 @@ Rails.application.routes.draw do
     root "inquiries#index"
     get "inquiries/show", to: "inquiries#show"
 
-    resources :coustomers. except: :destroy
+    resources :coustomers, except: :destroy
     resources :companies
     resources :line_plans
     resources :reviews, only: %i[update destroy]
