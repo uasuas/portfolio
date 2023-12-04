@@ -1,0 +1,7 @@
+<!--application_helperから条件に応じて表示内容を呼び出す。-->
+<li class="navbar-nav">
+  <%= link_to item[:path], method: item[:method] || nil, class: "nav-link" do %>
+    <i class="fas <%= item[:icon] %>"></i>
+    <%= item[:text] %>
+  <% end %>
+</li>

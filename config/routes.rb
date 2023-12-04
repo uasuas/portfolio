@@ -10,12 +10,12 @@ Rails.application.routes.draw do
 
   root 'public/homes#top'
   get 'about', to: 'public/homes#about'
-  # publicをURLに含めたくない為、scope moduleを使用
+  # publicをURLに含めたくない為、scope moduleを使用。
   scope module: :public do
     resources :companies, only: %i[index show]
     resources :line_plans, only: %i[index show]
     resources :reviews, only: %i[creat update destroy]
-    # indexとidはトラブルの元となる為resourceを使用
+    # indexとidはトラブルの元となる為、resourceを使用。
     resource :customers do
       collection do
         get :mypage, to: "customers#show"
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
     # get 'searches/search', as: "customer_search"
   end
-  # adminにいることが分かりやすくする為namespaceを使用
+  # adminにいることが分かりやすくする為、namespaceを使用。
   namespace :admin do
     root "inquiries#index"
     get "inquiries/show", to: "inquiries#show"
