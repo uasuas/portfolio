@@ -1,0 +1,2 @@
+class LinePlan < ApplicationRecord
+end
