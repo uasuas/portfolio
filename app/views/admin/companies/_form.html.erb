@@ -1,0 +1,39 @@
+<div class="form-group">
+  <%= form_with model: [:admin, company] do |f| %>
+    <div class="form-row">
+      <div class="<col-1 col-md-1 col-lg-1">
+        <%= f.label :name, "企業名" %>
+      </div>
+      <div class="col-6 col-md-5 col-lg-4">
+        <%= f.text_field :name, autofocus: true, autocomplete: "企業名", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="<col-1 col-md-1 col-lg-1">
+        <%= f.label :zip_code, "郵便番号" %>
+      </div>
+      <div class="col-6 col-md-5 col-lg-4">
+        <%= f.text_field :zip_code, autocomplete: "郵便番号", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="<col-1 col-md-1 col-lg-1">
+        <%= f.label :address, "住所" %>
+      </div>
+      <div class="col-6 col-md-5 col-lg-4">
+        <%= f.text_field :address, autocomplete: "住所", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="<col-1 col-md-1 col-lg-1">
+        <%= f.label :telephone_number, "電話番号" %>
+      </div>
+      <div class="col-6 col-md-5 col-lg-4">
+        <%= f.text_field :telephone_number, autocomplete: "電話番号", class: "form-control" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit '登録' %>
+    </div>
+  <% end %>
+</div>
