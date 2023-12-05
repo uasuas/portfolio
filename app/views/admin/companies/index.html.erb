@@ -17,6 +17,7 @@
       </thead>
       <tbody>
         <% @companies.each do |company| %>
+          <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
           <tr onclick="window.location='<%= admin_company_path(company) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
             <td><%= company.name %></td>
             <td><%= company.zip_code %></td>
