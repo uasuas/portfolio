@@ -1,2 +1,18 @@
 <h1>Public::Homes#top</h1>
 <p>Find me in app/views/public/homes/top.html.erb</p>
+
+<%= form_tag about_path, method: :get do %>
+  <% @areas.each do |area_name, area_code| %>
+    <%= radio_button_tag :area, area_code %>
+    <%= label_tag area_name %><br>
+  <% end %>
+  <% @contents.each do |content_name, content_code| %>
+    <%= check_box_tag :contents, content_code %>
+    <%= label_tag content_name %><br>
+  <% end %>
+  <% @prices.each do |price_range, price_code| %>
+    <%= radio_button_tag :price, price_code %>
+    <%= label_tag price_range %><br>
+  <% end %>
+  <%= submit_tag "診断する" %>
+<% end %>
