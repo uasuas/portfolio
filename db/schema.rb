@@ -85,27 +85,39 @@ ActiveRecord::Schema.define(version: 2023_12_05_102341) do
   end
 
   create_table "line_plans", force: :cascade do |t|
+    t.integer "company_id", null: false
     t.string "name", null: false
     t.integer "monthly_fee", null: false
     t.text "introduction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_line_plans_on_company_id"
   end
 
   create_table "plan_details", force: :cascade do |t|
+    t.integer "line_plan_id", null: false
     t.string "plan_code", null: false
     t.string "plan_text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["line_plan_id"], name: "index_plan_details_on_line_plan_id"
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "line_plan_id", null: false
     t.text "content", null: false
     t.string "star"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_reviews_on_customer_id"
+    t.index ["line_plan_id"], name: "index_reviews_on_line_plan_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "line_plans", "companies"
+  add_foreign_key "plan_details", "line_plans"
+  add_foreign_key "reviews", "customers"
+  add_foreign_key "reviews", "line_plans"
 end
