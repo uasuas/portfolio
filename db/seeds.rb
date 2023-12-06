@@ -45,7 +45,7 @@ prices = {
   "6,000円~" => "6",
 }
 
-# seedデータの生成
+# seedテスト用データの生成
 areas.each do |area_name, area_code|
   contents.each do |content_name, content_code|
     prices.each do |price_range, price_code|
