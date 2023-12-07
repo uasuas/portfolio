@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PlanDetailTest < ActiveSupport::TestCase
+class AreaLineTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

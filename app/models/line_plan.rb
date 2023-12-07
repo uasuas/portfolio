@@ -1,7 +1,10 @@
 class LinePlan < ApplicationRecord
   belongs_to :company
-  # belongs_to :plan_detail
-  has_many :review, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :area_lines, dependent: :destroy
+  has_many :areas, through: :area_lines
+  has_many :content_lines, dependent: :destroy
+  has_many :contents, through: :content_lines
 
   validates :name, presence: true
   validates :monthly_fee, presence: true

@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  plan_detail: MyString
+  area: one
+  line_plan: one
 
 two:
-  plan_detail: MyString
+  area: two
+  line_plan: two

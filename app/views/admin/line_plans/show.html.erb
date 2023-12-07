@@ -1,2 +1,39 @@
-<h1>Admin::LinePlans#show</h1>
-<p>Find me in app/views/admin/line_plans/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>回線プラン情報ページ</h2>
+      <div class="row">
+        <div class="col-12 col-lg-4 col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-12 col-lg-12 col-md-6 col-sm-6">
+
+            </div>
+            <div class="col-12 col-lg-12 col-md-6 col-sm-6">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th class="col-5 col-lg-4 col-md-4">プラン名</th>
+                    <td><%= @line_plan.name %></td>
+                  </tr>
+                  <tr>
+                    <th>月額料金</th>
+                    <td><%= @line_plan.monthly_fee %></td>
+                  </tr>
+                  <tr>
+                    <th>内容</th>
+                    <td><%= @line_plan.introduction %></td>
+                  </tr>
+                  <tr>
+                    <th>対応エリア</th>
+                    <td><%= @line_plan.areas.area %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-8 col-md-12 col-sm-12"></div>
+      </div>
+    </div>
+  </div>
+</div>

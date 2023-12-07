@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= form_with model: [:admin, @line_plan] do |f| %>
+  <%= form_with model: [:admin, line_plan] do |f| %>
     <div class="form-row">
       <div class="col-2 col-sm-2">
         <%= f.label :company_id, "企業名" %>
@@ -30,6 +30,28 @@
       </div>
       <div class="col-11 col-lg-4 col-md-5 col-sm-8">
         <%= f.text_area :introduction, autocomplete: "内容入力", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-2 col-sm-2">
+        <%= f.label :area, "エリア" %>
+      </div>
+      <div class="col-11 col-lg-4 col-md-5 col-sm-8">
+        <% areas.each do |area| %>
+          <%= check_box_tag 'area_ids[]', area.id %>
+          <%= label_tag "line_plan_area_ids_#{area.area}", I18n.t("enums.attributes.area.kanto_prefectures.#{area.area}") %><br>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-2 col-sm-2">
+        <%= f.label :content, "回線" %>
+      </div>
+      <div class="col-11 col-lg-4 col-md-5 col-sm-8">
+        <% Content.all.each do |content| %>
+          <%= check_box_tag 'content_ids[]', content.id%>
+          <%= label_tag "line_plan_content_ids_#{content.content}", I18n.t("enums.attributes.content.#{content.content}") %><br>
+        <% end %>
       </div>
     </div>
     <div class="actions">
