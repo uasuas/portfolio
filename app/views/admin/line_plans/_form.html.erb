@@ -1,0 +1,39 @@
+<div class="form-group">
+  <%= form_with model: [:admin, @line_plan] do |f| %>
+    <div class="form-row">
+      <div class="col-2 col-sm-2">
+        <%= f.label :company_id, "企業名" %>
+      </div>
+      <div class="col-11 col-lg-4 col-md-5 col-sm-8">
+        <%= f.collection_select :company_id, Company.all, :id, :name, include_blank: "選択して下さい" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-2 col-sm-2">
+        <%= f.label :name, "回線プラン名" %>
+      </div>
+      <div class="col-11 col-lg-4 col-md-5 col-sm-8">
+        <%= f.text_field :name, autofocus: true, autocomplete: "プラン名", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-2 col-sm-2">
+        <%= f.label :monthly_fee, "月額料金" %>
+      </div>
+      <div class="col-11 col-lg-4 col-md-5 col-sm-8">
+        <%= f.text_field :monthly_fee, autocomplete: "月額料金", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-2 col-sm-2">
+        <%= f.label :introduction, "プラン内容" %>
+      </div>
+      <div class="col-11 col-lg-4 col-md-5 col-sm-8">
+        <%= f.text_area :introduction, autocomplete: "内容入力", class: "form-control" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit '登録' %>
+    </div>
+  <% end %>
+</div>

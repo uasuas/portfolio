@@ -12,6 +12,15 @@ Admin.create(
   password: "adminadmin",
 )
 
+5.times do |n|
+  Company.create(
+    name: "test#{n + 1}",
+    zip_code: "123456#{n + 1}",
+    address: "adress#{n + 1}",
+    telephone_number: "000012345#{n + 1}",
+  )
+end
+
 # 診断結果用seed
 areas = {
   "東京" => "１",

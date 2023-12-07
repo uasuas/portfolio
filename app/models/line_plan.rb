@@ -1,6 +1,6 @@
 class LinePlan < ApplicationRecord
   belongs_to :company
-  belongs_to :plan_detail
+  # belongs_to :plan_detail
   has_many :review, dependent: :destroy
 
   validates :name, presence: true
