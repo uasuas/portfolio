@@ -37,10 +37,16 @@
         <%= f.label :area, "エリア" %>
       </div>
       <div class="col-11 col-lg-4 col-md-5 col-sm-8">
-        <% areas.each do |area| %>
-          <%= check_box_tag 'area_ids[]', area.id %>
-          <%= label_tag "line_plan_area_ids_#{area.area}", I18n.t("enums.attributes.area.kanto_prefectures.#{area.area}") %><br>
-        <% end %>
+        <div class="row">
+          <% Area.all.each do |area| %>
+            <div class="col-6">
+              <!--チェックボックスの中身をarea_idsのname属性を付け、[]を付けることで配列として、チェックされたcontent.idを入れ、フォームデータで送る。-->
+              <%= check_box_tag 'area_ids[]', area.id %>
+              <!--もし列ではなくエリア一覧で表示したい為、ダブルクォーテーションを使用している。-->
+              <%= label_tag "area_ids_#{area.area}", area.area %><br>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="form-row">
@@ -48,10 +54,16 @@
         <%= f.label :content, "回線" %>
       </div>
       <div class="col-11 col-lg-4 col-md-5 col-sm-8">
-        <% Content.all.each do |content| %>
-          <%= check_box_tag 'content_ids[]', content.id%>
-          <%= label_tag "line_plan_content_ids_#{content.content}", I18n.t("enums.attributes.content.#{content.content}") %><br>
-        <% end %>
+        <div class="row">
+          <% Content.all.each do |content| %>
+            <div class="col-12">
+              <!--チェックボックスの中身をcontent_idsのname属性を付け、[]を付けることで配列として、チェックされたcontent.idを入れ、フォームデータで送る。-->
+              <%= check_box_tag 'content_ids[]', content.id %>
+              <!--もし列ではなくコンテンツ一覧で表示したい為、ダブルクォーテーションを使用している。-->
+              <%= label_tag "content_ids_#{content.content}", content.content %><br>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="actions">

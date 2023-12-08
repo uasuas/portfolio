@@ -20,6 +20,7 @@ class Admin::LinePlansController < ApplicationController
   def create
     @line_plan = LinePlan.new(line_plan_params)
     if @line_plan.save
+      # チェックボックスから送られて来たarea_ids名の配列内容をarea_idに入れ、中間テーブルに保存する。
       params[:area_ids].each do |area_id|
         @line_plan.area_lines.create(area_id: area_id)
       end
