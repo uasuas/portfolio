@@ -1,7 +1,6 @@
 class Admin::LinePlansController < ApplicationController
   def new
     @line_plan = LinePlan.new
-    @areas = Area.all
   end
 
   def index

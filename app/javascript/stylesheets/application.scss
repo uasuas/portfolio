@@ -9,3 +9,9 @@ footer {
   top: 100vh;
   top: 100dvh;
 }
+
+// 長文省略表示の設定。
+.text-omission {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+}
