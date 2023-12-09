@@ -1,0 +1,20 @@
+<% if customer_signed_in?  %>
+  <%= form_with model: [line_plan, review], url: line_plan_reviews_path(line_plan), method: :post do |f| %>
+    <%= f.text_area :content, rows: '5', placeholder: "コメントをここに", class:"w-100" %><br/>
+    <%= f.submit "送信", class:"mb-3" %>
+  <% end %>
+<% end %>
+<% line_plan.reviews.each do |l| %>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <p><%= l.customer.name %></p>
+        <%= l.created_at.strftime('%Y/%m/%d') %><br/>
+        <% if customer_signed_in? && current_customer == l.customer %>
+          <%= link_to line_plan_review_path(l.line_plan, l), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" do %>Destroy<% end %>
+        <% end %>
+        <%= l.content %><br/>
+      </div>
+    </div>
+  </div>
+<% end %>

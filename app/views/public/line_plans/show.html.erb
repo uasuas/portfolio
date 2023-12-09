@@ -1,2 +1,74 @@
-<h1>Public::LinePlans#show</h1>
-<p>Find me in app/views/public/line_plans/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>回線プラン情報ページ</h2>
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <div class="row">
+            <div class="image_tag col-12 col-lg-12 col-sm-6">
+              <%= image_tag @line_plan.company.get_company_image(200,200) %>
+            </div>
+            <div class="col-12 col-lg-12 col-sm-6">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th class="col-5 col-md-4">企業名</th>
+                    <td><%= @line_plan.company.name %></td>
+                  </tr>
+                  <tr>
+                    <th>郵便番号</th>
+                    <td><%= @line_plan.company.zip_code %></td>
+                  </tr>
+                  <tr>
+                    <th>住所</th>
+                    <td><%= @line_plan.company.address %></td>
+                  </tr>
+                  <tr>
+                    <th>電話番号</th>
+                    <td><%= @line_plan.company.telephone_number %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-8">
+          <div class="row">
+            <div class="col-12">
+              <h3><%= @line_plan.name %></h3>
+            </div>
+            <div class="col-5 offset-1">
+              <h5>対応エリア</h5>
+              <ul>
+                <% @line_plan.areas.each do |area| %>
+                  <li><%= area.area %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col-6">
+              <h5>回線内容</h5>
+              <ul>
+                <% @line_plan.contents.each do |content| %>
+                  <li><%= content.content %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col-11 col-lg-3 offset-1">
+              <h5>月額料金</h5>
+            </div>
+            <div class="col-11 col-lg-7 offset-1">
+              <%= @line_plan.monthly_fee %>
+            </div>
+            <div class="col-11 offset-1">
+              <h5>内容</h5>
+              <p><%= @line_plan.introduction %></p>
+            </div>
+          </div>
+          <div>
+            <%= render "public/line_plans/review", line_plan: @line_plan, review: @review %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
