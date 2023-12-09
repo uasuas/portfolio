@@ -3,9 +3,6 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
   end
 
-  def edit
-  end
-
   def update
     @customer = current_customer
     if @customer.update(customer_params)
