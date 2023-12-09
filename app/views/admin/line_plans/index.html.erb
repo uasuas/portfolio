@@ -1,2 +1,42 @@
-<h1>Admin::LinePlans#index</h1>
-<p>Find me in app/views/admin/line_plans/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>回線プラン情報ページ</h2>
+      <div class="row">
+        <div class="col-12 col-lg-4 col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-12 col-lg-12 col-md-6 col-sm-6">
+              <%= render "layouts/sidebar" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-8 col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-6">
+              <h2>回線プラン一覧</h2>
+            </div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-2">登録日</th>
+                <th class="col-5">企業名</th>
+                <th class="col-5">プラン名</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @line_plans.each do |line_plan| %>
+                <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
+                <tr onclick="window.location='<%= admin_line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+                  <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
+                  <td><%= line_plan.company.name %></td>
+                  <td><%= line_plan.name %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

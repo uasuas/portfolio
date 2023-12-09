@@ -23,6 +23,7 @@ class Admin::LinePlansController < ApplicationController
       params[:area_ids].each do |area_id|
         @line_plan.area_lines.create(area_id: area_id)
       end
+      # チェックボックスから送られて来たcontent_ids名の配列内容をcontent_idに入れ、中間テーブルに保存する。
       params[:content_ids].each do |content_id|
         @line_plan.content_lines.create(content_id: content_id)
       end

@@ -6,21 +6,7 @@
         <div class="col-12 col-lg-4 col-md-12 col-sm-12">
           <div class="row">
             <div class="col-12 col-lg-12 col-md-6 col-sm-6">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th class="col-5 col-lg-4 col-md-4">管理者メニュー</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><%= link_to "企業登録", new_admin_company_path %></td>
-                  </tr>
-                  <tr>
-                    <td><%= link_to "プラン登録", new_admin_line_plan_path %></td>
-                  </tr>
-                </tbody>
-              </table>
+              <%= render "layouts/sidebar" %>
             </div>
           </div>
         </div>
