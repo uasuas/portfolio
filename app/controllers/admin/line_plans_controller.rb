@@ -9,7 +9,6 @@ class Admin::LinePlansController < ApplicationController
 
   def show
     @line_plan = LinePlan.find(params[:id])
-    @areas = @line_plan.areas
   end
 
   def edit

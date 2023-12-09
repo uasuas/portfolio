@@ -5,12 +5,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_admin!, if: :admin_area?
 
   private
+
   def after_sign_in_path_for(resource)
-    # 管理者のログイン時。
-    if resource == :admin
+    # 管理者のログイン時。送られて来た値が、is_a?の（）内にあるAdminのものであるかを確認している。
+    if resource.is_a?(Admin)
       admin_root_path
-    # ユーザーのログイン時。
-    elsif resource == :customer
+    # ユーザーのログイン時。送られて来た値が、is_a?の（）内にあるCustomerのものであるかを確認している。
+    elsif resource.is_a?(Customer)
       mypage_customers_path
     # 予期しない値の時。
     else
@@ -20,11 +21,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource)
     # 管理者のログアウト時。
-    if resource == :admin
+    if resource.is_a?(Admin)
       admin_root_path
     # ユーザーのログアウト時。
-    elsif resource == :customer
-      mypage_customers_path
+    elsif resource.is_a?(Customer)
+      root_path
     # 予期しない値の時。
     else
       root_path

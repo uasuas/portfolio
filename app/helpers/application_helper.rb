@@ -46,13 +46,13 @@ module ApplicationHelper
       },
       {
         icon: "fa-solid fa-users",
-        path: root_path,
-        text: "test"
+        path: companies_path,
+        text: "回線会社一覧"
       },
       {
         icon: "fa-solid fa-book-open",
-        path: root_path,
-        text: "test"
+        path: line_plans_path,
+        text: "回線プラン一覧"
       },
       {
         icon: "fa-solid fa-sign-out-alt",

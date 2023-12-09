@@ -1,2 +1,26 @@
-<h1>Public::LinePlans#index</h1>
-<p>Find me in app/views/public/line_plans/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>回線プラン一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-2">登録日</th>
+            <th class="col-5">企業名</th>
+            <th class="col-5">プラン名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @line_plans.each do |line_plan| %>
+            <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
+            <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+              <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
+              <td><%= line_plan.company.name %></td>
+              <td><%= line_plan.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
