@@ -1,19 +1,25 @@
 <% if customer_signed_in?  %>
   <%= form_with model: [line_plan, review], url: line_plan_reviews_path(line_plan), method: :post do |f| %>
-    <%= f.text_area :content, rows: '5', placeholder: "コメントをここに", class:"w-100" %><br/>
+    <%= f.text_area :content, rows: '5', placeholder: "内容を入力してください。", class:"w-100" %><br/>
     <%= f.submit "送信", class:"mb-3" %>
   <% end %>
 <% end %>
 <% line_plan.reviews.each do |l| %>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <p><%= l.customer.name %></p>
-        <%= l.created_at.strftime('%Y/%m/%d') %><br/>
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title h5">
+        <%= l.customer.name %> 様
+      </div>
+      <div class="card-text">
+        <p class="px-2">
+          <%= l.content %>
+        </p>
+      </div>
+      <div class="text-right">
+        投稿日 <%= l.created_at.strftime('%Y/%m/%d') %>
         <% if customer_signed_in? && current_customer == l.customer %>
-          <%= link_to line_plan_review_path(l.line_plan, l), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" do %>Destroy<% end %>
+          <%= link_to line_plan_review_path(l.line_plan, l), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" do %>コメントを削除<% end %>
         <% end %>
-        <%= l.content %><br/>
       </div>
     </div>
   </div>
