@@ -30,12 +30,12 @@ Rails.application.routes.draw do
   end
   # adminにいることが分かりやすくする為、namespaceを使用。
   namespace :admin do
-    root "inquiries#index"
+    root "homes#top"
     get "inquiries/show", to: "inquiries#show"
 
     resources :companies
     resources :line_plans
-    resources :reviews, only: %i[index destroy]
+    resources :reviews, only: %i[destroy]
     resources :coustomers, except: :destroy
   end
 

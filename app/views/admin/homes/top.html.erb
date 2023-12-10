@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-3">
+      <div class="row">
+        <div class="col-12">
+          <div id="tab-title">
+          <div class="tab-title">test</div>
+          <div id="title1" class="tab-title"></div>
+          <div id="title2" class="tab-title"></div>
+          <div id="title3" class="tab-title"></div>
+          <div id="title4" class="tab-title"></div>
+        </div>
+          <%= render "layouts/sidebar" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-9">
+      <div class="wrap">
+        <ul id="tab-menu">
+          <li><a href="#tab1" class="active">会員一覧</a></li>
+          <li><a href="#tab2" class="">企業一覧</a></li>
+          <li><a href="#tab3" class="">プラン一覧</a></li>
+          <li><a href="#tab4" class="">評価一覧</a></li>
+        </ul>
+        <div id="tab-contents">
+          <div id="tab1" class="tab">
+            <%= render "admin/reviews/index", reviews: @reviews %>
+          </div>
+          <div id="tab2" class="tab">
+          </div>
+          <div id="tab3" class="tab">
+          </div>
+          <div id="tab4" class="tab">
+            <%= render "admin/reviews/index", reviews: @reviews %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
