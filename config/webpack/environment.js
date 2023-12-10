@@ -9,6 +9,5 @@ environment.plugins.prepend(
     $: 'jquery/src/jquery',
     jQuery: 'jquery/src/jquery',
     jquery: 'jquery/src/jquery',
-    Popper: 'popper.js'
   })
 )
