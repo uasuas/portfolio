@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :companies, only: %i[index show]
     resources :line_plans, only: %i[index show] do
-      resources :reviews, only: %i[create update destroy]
+      resources :reviews, only: %i[create destroy]
     end
     # indexとidはトラブルの元となる為、resourceを使用。
     resource :customers do
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
     resources :companies
     resources :line_plans
-    resources :reviews, only: %i[update destroy]
+    resources :reviews, only: %i[index destroy]
     resources :coustomers, except: :destroy
   end
 
