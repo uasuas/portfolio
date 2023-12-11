@@ -1,2 +1,46 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-10 offset-2 mb-3">
+      <h2>会員情報編集</h2>
+    </div>
+    <div class="col-10 col-lg-7">
+      <div class="form-group">
+        <%= form_with model: [:admin, @customer] do |f| %>
+          <div class="form-row align-items-center">
+            <div class="col-3">
+              <%= f.label :name, "名前" %>
+            </div>
+            <div class="col-11 col-md-9">
+              <%= f.text_field :name, autofocus: true, autocomplete: "名前", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-11 col-md-3">
+              <%= f.label :email, "メールアドレス" %>
+            </div>
+            <div class="col-11 col-md-9">
+              <%= f.text_field :email, autocomplete: "メールアドレス", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-1 offset-1 text-right">
+              <%= f.radio_button :is_active, true %>
+            </div>
+            <div class="col-3">
+              <%= f.label :is_active_true, "ご利用中" %>
+            </div>
+            <div class="col-1 text-right">
+              <%= f.radio_button :is_active, false %>
+            </div>
+            <div class="col-3">
+              <%= f.label :is_active_false, "退会済み" %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit '登録' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
