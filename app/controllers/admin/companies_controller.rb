@@ -32,7 +32,8 @@ class Admin::CompaniesController < ApplicationController
   def destroy
     @company = Company.find(params[:id])
     if @company.destroy
-      redirect_to admin_root_path, notice: "回線企業の登録削除が完了しました。"
+      flash.now[:notice] = "回線企業の削除が完了しました。"
+      render :company_action
     else
       render :show
     end
