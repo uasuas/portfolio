@@ -3,10 +3,6 @@ class Admin::LinePlansController < ApplicationController
     @line_plan = LinePlan.new
   end
 
-  def index
-    @line_plans = LinePlan.all
-  end
-
   def show
     @line_plan = LinePlan.find(params[:id])
   end
@@ -36,9 +32,8 @@ class Admin::LinePlansController < ApplicationController
 
   def destroy
     LinePlan.find(params[:id]).destroy
-    @company = Company.find(params[:company_id])
     flash.now[:notice] = "回線プランを削除しました。"
-    redirect_to company_path(params[:company_id])
+    redirect_to admin_root_path
   end
 
 private

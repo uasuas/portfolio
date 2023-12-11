@@ -3,10 +3,6 @@ class Admin::CompaniesController < ApplicationController
     @company = Company.new
   end
 
-  def index
-    @companies = Company.all
-  end
-
   def show
     @company = Company.find(params[:id])
   end
@@ -33,10 +29,10 @@ class Admin::CompaniesController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @company = Company.find(params[:id])
-    if @company.destory
-      redirect_to admin_companies_path, notice: "回線企業の登録削除が完了しました。"
+    if @company.destroy
+      redirect_to admin_root_path, notice: "回線企業の登録削除が完了しました。"
     else
       render :show
     end

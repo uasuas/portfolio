@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-2">企業名</th>
+      <th class="col-2">郵便番号</th>
+      <th class="col-4">住所</th>
+      <th class="col-2">電話番号</th>
+      <th class="col-2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% companies.each do |company| %>
+      <!--テーブル全体にカーソル変化とハイライトし、削除以外をリンクに変更する。-->
+      <tr role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+        <td onclick="window.location='<%= admin_company_path(company) %>'"><%= company.name %></td>
+        <td onclick="window.location='<%= admin_company_path(company) %>'"><%= company.zip_code %></td>
+        <td onclick="window.location='<%= admin_company_path(company) %>'"><%= company.address %></td>
+        <td onclick="window.location='<%= admin_company_path(company) %>'"><%= company.telephone_number %></td>
+        <td class="text-right"><%= link_to "削除", admin_company_path(company.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

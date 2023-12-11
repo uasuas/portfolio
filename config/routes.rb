@@ -33,10 +33,10 @@ Rails.application.routes.draw do
     root "homes#top"
     get "inquiries/show", to: "inquiries#show"
 
-    resources :companies
-    resources :line_plans
+    resources :companies, except: :index
+    resources :line_plans, except: :index
     resources :reviews, only: %i[destroy]
-    resources :coustomers, except: :destroy
+    resources :customers, except: :destroy
   end
 
 end

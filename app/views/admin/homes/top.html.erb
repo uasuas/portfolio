@@ -24,10 +24,19 @@
         </ul>
         <div id="tab-contents">
           <div id="tab1" class="tab">
+            <div class="admin-tab-index">
+              <%= render "admin/customers/index", customers: @customers %>
+            </div>
           </div>
           <div id="tab2" class="tab">
+            <div class="admin-tab-index">
+              <%= render "admin/companies/index", companies: @companies %>
+            </div>
           </div>
           <div id="tab3" class="tab">
+            <div class="admin-tab-index">
+              <%= render "admin/line_plans/index", line_plans: @line_plans %>
+            </div>
           </div>
           <div id="tab4" class="tab">
             <div class="admin-tab-index">
