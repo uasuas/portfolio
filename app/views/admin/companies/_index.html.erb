@@ -16,7 +16,7 @@
         <td onclick="window.location='<%= admin_company_path(company) %>'"><%= company.zip_code %></td>
         <td onclick="window.location='<%= admin_company_path(company) %>'"><%= company.address %></td>
         <td onclick="window.location='<%= admin_company_path(company) %>'"><%= company.telephone_number %></td>
-        <td class="text-right"><%= link_to "削除", admin_company_path(company.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></td>
+        <td class="text-right"><%= link_to "削除", admin_company_path(company.id), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

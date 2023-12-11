@@ -30,8 +30,8 @@
           <div class="row">
             <div class="col-12">
               <% @customer.reviews.each do |review| %>
-                <div id="review-crad_<%= review.id %>" >
-                  <%= render "admin/customers/reviews", review: review %>
+                <div id="review-card_<%= review.id %>" >
+                  <%= render "admin/customers/review-card", review: review %>
                 </div>
               <% end %>
             </div>
