@@ -33,7 +33,7 @@ class Admin::LinePlansController < ApplicationController
   def destroy
     LinePlan.find(params[:id]).destroy
     flash.now[:notice] = "回線プランを削除しました。"
-    redirect_to admin_root_path
+    render :line_plan_action
   end
 
 private

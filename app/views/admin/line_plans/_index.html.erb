@@ -9,13 +9,7 @@
   </thead>
   <tbody>
     <% line_plans.each do |line_plan| %>
-      <!--テーブル全体にカーソル変化とハイライトし、削除以外をリンクに変更する。-->
-      <tr role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
-        <td onclick="window.location='<%= admin_line_plan_path(line_plan) %>'"><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
-        <td onclick="window.location='<%= admin_line_plan_path(line_plan) %>'"><%= line_plan.company.name %></td>
-        <td onclick="window.location='<%= admin_line_plan_path(line_plan) %>'"><%= line_plan.name %></td>
-        <td class="text-right"><%= link_to "削除", admin_line_plan_path(line_plan.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></td>
-      </tr>
+      <%= render "admin/line_plans/index-content", line_plan: line_plan %>
     <% end %>
   </tbody>
 </table>
