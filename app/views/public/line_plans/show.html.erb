@@ -64,7 +64,7 @@
               <p><%= @line_plan.introduction %></p>
             </div>
           </div>
-          <div>
+          <div id="review-action_<%= @review.id %>">
             <%= render "public/line_plans/review", line_plan: @line_plan, review: @review %>
           </div>
         </div>

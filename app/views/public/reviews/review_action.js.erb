@@ -1,0 +1,6 @@
+$('#review-action_<%= @review.id %>').html('<%= j(render "public/line_plans/review", line_plan: @line_plan, review: @review) %>');
+$('#review-card_<%= @review.id %>').remove();
+<!--フラッシュメッセージを表示。-->
+$('#flash').html('<%= j(render 'layouts/flash') %>').show();
+<!--表示したメッセージを３秒後にゆっくり非表示。-->
+$('#flash').delay(3000).fadeOut('slow');

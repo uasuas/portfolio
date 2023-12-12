@@ -49,10 +49,15 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-lg-8">
-        <div class="row">
-          <div class="col-12">
+        <div class="col-12 col-lg-8">
+          <div class="row">
+            <div class="col-12">
+              <% current_customer.reviews.each do |review| %>
+                <div class="review-card_<%= review.id %>" >
+                  <%= render "public/customers/review-card", review: review %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
