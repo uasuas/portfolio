@@ -1,13 +1,6 @@
 // Place all the styles related to the admin/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .wrap {
   width: 100%;
   margin: 0 auto;
@@ -43,9 +36,8 @@
   display: none;
 }
 
-.tab-contents .tab {
+#tab-contents .tab {
   width: 100%;
-  padding: 30px;
   background: #fff;
   border: 1px solid #000;
   border-top: none;
@@ -54,14 +46,6 @@
 #tab-contents p {
   color: #000;
   line-height: 2.5;
-}
-
-.admin-tab-index {
-  border: 1px solid #000;
-}
-
-.table {
-  margin: 0;
 }
 
 .tab-title {

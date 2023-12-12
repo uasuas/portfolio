@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
 }
@@ -40,6 +46,10 @@ footer {
 }
 
 label {
+  margin: 0;
+}
+
+.table {
   margin: 0;
 }
 

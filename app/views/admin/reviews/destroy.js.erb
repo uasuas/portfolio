@@ -1,3 +1,4 @@
+$('#review-list-content_<%= @review.id %>').remove();
 $('#review-card_<%= @review.id %>').remove();
 <!--フラッシュメッセージを表示。-->
 $('#flash').html('<%= j(render 'layouts/flash') %>').show();
