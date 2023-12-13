@@ -1,19 +1,3 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>メニュー</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= link_to "企業登録", new_admin_company_path %></td>
-    </tr>
-    <tr>
-      <td><%= link_to "プラン登録", new_admin_line_plan_path %></td>
-    </tr>
-  </tbody>
-</table>
-
 <aside class="sidebar">
   <div class="logo">
     <i class="fa-solid fa-wave-square"></i>
@@ -23,6 +7,7 @@
       <hr>
       <h4>Main Menu</h4>
       <div class="menu">
+        <!--header内のコンテンツを、helperを活用し編集を行いやすくする為-->
         <%= render partial: "layouts/nav_item", collection: nav_items, as: :item %>
       </div>
       <hr>

@@ -1,17 +1,18 @@
 <div class="px-2" id="star_<%= evaluation.id %>"></div>
 <script>
-$(document).on('turbolinks:load', function() {
-  let elem = document.querySelector('#star_<%= evaluation.id %>');
-  if (elem == null) return;
-
-  elem.innerHTML = "";
-  let opt = {
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    starHalf: "<%= asset_path('star-half.png') %>",
-    score: "<%= evaluation.star %>",
-    readOnly: true,
-  };
-  raty(elem, opt);
-});
+// ターボリンクスによってstarが表示されなくなっていた為削除。
+  $(function() {
+    let elem = document.querySelector('#star_<%= evaluation.id %>');
+    if (elem == null) return;
+  
+    elem.innerHTML = "";
+    let opt = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: "<%= evaluation.star %>",
+      readOnly: true,
+    };
+    raty(elem, opt);
+  });
 </script>

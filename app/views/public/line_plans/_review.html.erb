@@ -13,7 +13,7 @@
       </div>
     </div>
     <script>
-      $(document).on('turbolinks:load', function() {
+      $(function() {
         let elem = document.querySelector('#post_raty');
         if (elem == null) return;
 
@@ -31,7 +31,7 @@
     <%= f.submit "送信", class:"mb-3" %>
   <% end %>
 <% end %>
-<% line_plan.reviews.each do |review| %>
+<% line_plan.reviews.reverse.each do |review| %>
   <div id="review-card_<%= review.id %>">
     <%= render "public/customers/review-card", review: review %>
   </div>

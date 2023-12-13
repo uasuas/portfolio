@@ -5,11 +5,16 @@ class Public::ReviewsController < ApplicationController
     @review = current_customer.reviews.new(review_params)
     @review.line_plan_id = @line_plan.id
     if @review.save
-      flash.now[:notice] = "コメントを投稿しました。"
-      render :review_action
+      # 非同期通信でメッセージをJS書き換える内容。
+      @messege = "レビューを投稿しました。"
     else
-      flash.now[:alert] = "コメントを入力してください。"
-      redirect_to line_plan_path(params[:line_plan_id])
+      # 非同期通信でメッセージをJS書き換える内容。
+      @messege = "入力項目を確認してください。"
+    end
+    # リクエストの形式をjsでレンダリングする為にrespond_toを使用。
+    respond_to do |format|
+      # jsの:review_actionを指定。
+      format.js { render :review_action }
     end
   end
 
@@ -17,8 +22,13 @@ class Public::ReviewsController < ApplicationController
     Review.find(params[:id]).destroy
     @line_plan = LinePlan.find(params[:line_plan_id])
     @review = Review.new
-    flash.now[:notice] = "コメントを削除しました。"
-    render :review_action
+    # 非同期通信でメッセージをJS書き換える内容。
+    @messege = "レビューを削除しました。"
+    # リクエストの形式をjsでレンダリングする為にrespond_toを使用。
+    respond_to do |format|
+      # jsの:review_actionを指定。
+      format.js { render :review_action }
+    end
   end
 
 private
