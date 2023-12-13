@@ -20,13 +20,13 @@ module ApplicationHelper
       },
       {
         icon: "fa-solid fa-users",
-        path: admin_companies_path,
-        text: "企業一覧"
+        path: new_admin_company_path,
+        text: "企業登録"
       },
       {
         icon: "fa-solid fa-book-open",
-        path: admin_line_plans_path,
-        text: "プラン一覧"
+        path: new_admin_line_plan_path,
+        text: "プラン登録"
       },
       {
         icon: "fa-solid fa-sign-out-alt",

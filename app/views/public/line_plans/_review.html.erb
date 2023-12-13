@@ -32,7 +32,7 @@
   <% end %>
 <% end %>
 <% line_plan.reviews.each do |review| %>
-  <div class="review-card_<%= review.id %>">
+  <div id="review-card_<%= review.id %>">
     <%= render "public/customers/review-card", review: review %>
   </div>
 <% end %>

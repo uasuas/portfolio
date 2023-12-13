@@ -13,3 +13,19 @@
     </tr>
   </tbody>
 </table>
+
+<aside class="sidebar">
+  <div class="logo">
+    <i class="fa-solid fa-wave-square"></i>
+    <h2>IdealConnect</h2>
+  </div>
+    <ul class="links">
+      <hr>
+      <h4>Main Menu</h4>
+      <div class="menu">
+        <%= render partial: "layouts/nav_item", collection: nav_items, as: :item %>
+      </div>
+      <hr>
+    </ul>
+  </div>
+</aside>

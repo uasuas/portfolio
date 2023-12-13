@@ -2,6 +2,15 @@
   <div class="row">
     <div class="col">
       <h2>検索ワード：<%= @word %></h2>
+      <%= form_tag({controller:"line_plans", action:"search"}, method: :get) do %>
+        <% Area.all.each do |area| %>
+          <%= check_box :area_ids, area.area %><%= area.area %>
+        <% end %>
+        <% Content.all.each do |content| %>
+          <%= check_box :content_ids, content.content %><%= content.content %>
+        <% end %>
+        <%= submit_tag '検索' %>
+      <% end %>
       <table class="table">
         <thead>
           <tr>
@@ -44,6 +53,13 @@
                 </td>
               </tr>
             <% end %>
+          <% end %>
+          <% @line_plans.each do |line_plan| %>
+            <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+              <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
+              <td><%= line_plan.name %></td>
+              <td><%= line_plan.name %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>
