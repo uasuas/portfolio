@@ -1,6 +1,18 @@
 <h1>Public::Homes#top</h1>
 <p>Find me in app/views/public/homes/top.html.erb</p>
 
+
+<%= form_tag({controller:"line_plans", action:"search"}, method: :get) do %>
+  <% Area.all.each do |area| %>
+    <%= check_box :area_ids, area.area %><%= area.area %>
+  <% end %>
+  <% Content.all.each do |content| %>
+    <%= check_box :content_ids, content.content %><%= content.content %>
+  <% end %>
+  <%= submit_tag '検索' %>
+<% end %>
+
+
 <%= form_tag about_path, method: :get do %>
   <% @areas.each do |area_name, area_code| %>
     <%= radio_button_tag :area, area_code %>

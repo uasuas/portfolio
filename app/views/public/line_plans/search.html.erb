@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>検索ワード：<%= @word %></h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-2">開始日</th>
+            <th class="col-5">プラン名</th>
+            <th class="col-5"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--areaで絞り込みを行なったものをeach。-->
+          <% @areas.each do |area| %>
+            <!--areaを持っているline_planをeach。-->
+            <% area.line_plans.each do |line_plan| %>
+              <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
+              <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+                <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
+                <td><%= line_plan.name %></td>
+                <td>
+                  <!--line_planのもつareaをeach。-->
+                  <% line_plan.areas.each do |area| %>
+                    <%= area.area %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+          <!--contentで絞り込みを行なったものをeach。-->
+          <% @contents.each do |content| %>
+            <!--contentを持っているline_planをeach。-->
+            <% content.line_plans.each do |line_plan| %>
+              <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
+              <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+                <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
+                <td><%= line_plan.name %></td>
+                <td>
+                  <!--line_planのもつcontentをeach。-->
+                  <% line_plan.contents.each do |content| %>
+                    <%= content.content %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

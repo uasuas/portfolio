@@ -41,7 +41,7 @@
               <h5>対応エリア</h5>
               <ul>
                 <% @line_plan.areas.each do |area| %>
-                  <li><%= area.area %></li>
+                  <li><%= link_to search_path(content: area.area) do %><%= area.area %><% end %></li>
                 <% end %>
               </ul>
             </div>
@@ -49,7 +49,7 @@
               <h5>回線内容</h5>
               <ul>
                 <% @line_plan.contents.each do |content| %>
-                  <li><%= content.content %></li>
+                  <li><%= link_to search_path(content: content.content) do %><%= content.content %><% end %></li>
                 <% end %>
               </ul>
             </div>

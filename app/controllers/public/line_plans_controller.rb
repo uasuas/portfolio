@@ -8,6 +8,13 @@ class Public::LinePlansController < ApplicationController
     @review = Review.new
   end
 
+  def search
+    @word = params[:content]
+    @areas = Area.where("area LIKE ?", "#{@word}")
+    @contents = Content.where("content LIKE ?", "#{@word}")
+    render "public/line_plans/search"
+  end
+
   private
 
   def line_plan_params

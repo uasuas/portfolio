@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   root 'public/homes#top'
   get 'about', to: 'public/homes#about'
+  get 'search', to: "public/line_plans#search"
   # publicをURLに含めたくない為、scope moduleを使用。
   scope module: :public do
     resources :companies, only: %i[index show]

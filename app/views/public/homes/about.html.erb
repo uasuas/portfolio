@@ -1,5 +1,8 @@
-<h1>Public::Homes#about</h1>
-<p>Find me in app/views/public/homes/about.html.erb</p>
+<% @area_list.each do |list|%>
+  <%= link_to list.name,  %>
+  <%="(#{list.areas.count})" %>
+<% end %>
+
 <% @plan_details.each do |plan_detail| %>
   <% if plan_detail.plan_code == @plan %>
     <div>
