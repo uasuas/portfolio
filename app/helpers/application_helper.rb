@@ -9,6 +9,18 @@ module ApplicationHelper
     end
   end
 
+  def menu_areas
+    if customer_signed_in?
+      signed_nav_items_area
+    end
+  end
+
+  def menu_contents
+    if customer_signed_in?
+      signed_nav_items_content
+    end
+  end
+
   private
   # 管理者用ヘッダー。
   def admin_nav_items
@@ -16,7 +28,7 @@ module ApplicationHelper
       {
         icon: "fa-solid fa-house",
         path: admin_root_path,
-        text: "管理者用"
+        text: "管理者TOP"
       },
       {
         icon: "fa-solid fa-users",
@@ -38,11 +50,11 @@ module ApplicationHelper
   end
   # ログイン後のヘッダー。
   def signed_nav_items
-    [
+    nav_items = [
       {
         icon: "fa-solid fa-house",
         path: mypage_customers_path,
-        text: "ログイン後"
+        text: "マイページ"
       },
       {
         icon: "fa-solid fa-users",
@@ -62,6 +74,32 @@ module ApplicationHelper
       }
     ]
   end
+  def signed_nav_items_area
+   area_items = []
+    area = Area.all
+    area.each do |area|
+      area_items << {
+        icon: "fa-solid fa-building",
+        path: search_path(content: area.area),
+        text: area.area
+      }
+    end
+    area_items
+  end
+
+  def signed_nav_items_content
+    content_items = []
+    content = Content.all
+    content.each do |content|
+      content_items << {
+        icon: "fa-solid fa-building",
+        path: search_path(content: content.content),
+        text: content.content
+      }
+    end
+    content_items
+  end
+
   # ログイン前のヘッダー。
   def guest_nav_items
     [

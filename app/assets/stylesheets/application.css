@@ -23,6 +23,10 @@ html, body {
   height: 100%;
 }
 
+main {
+  margin-top: 40px;
+}
+
 footer {
   position: sticky;
   top: 100vh;
@@ -71,8 +75,17 @@ label {
   backdrop-filter: blur(20px);
   --webkit-backdrop-filter: blur(20px);
   border-right: 1px solid rgba(112, 175, 255, 0.5);
+  /*0.3秒かけて広げる。*/
   transition: width 0.3s ease;
+  /*スクロール追加。*/
+  overflow-y: auto;
   z-index: 5;
+}
+
+.open {
+  position: absolute;
+  top: 45%;
+  left: 50%;
 }
 
 .sidebar.active {
@@ -171,6 +184,7 @@ label {
   display: block;
 }
 
+/*レスポンス時。*/
 @media screen and (min-width: 768px) {
   .sidebar {
     width: 50px;
@@ -182,8 +196,12 @@ label {
     width: 50px;
   }
 }
-/*レスポンス時。*/
+
 @media screen and (max-width: 767px) {
+  main {
+    margin-top: 60px;
+  }
+
   .sidebar {
     position: fixed;
     top: 0;
@@ -194,7 +212,7 @@ label {
   }
 /*表示サイズを上部で収める。*/
   .sidebar.active {
-    height: 350px;
+    height: 300px;
     width: 100%;
   }
 /*中央寄せに変更。*/
@@ -207,5 +225,14 @@ label {
   }
   .sidebar .links h4 {
     text-align: center;
+  }
+  .sidebar .logo {
+    padding: 10px 10px 15px;
+  }
+  .sidebar .links {
+    margin-top: 0;
+  }
+  .open {
+    top: -100%;
   }
 }

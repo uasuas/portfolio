@@ -13,6 +13,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "script.js"
+import "sidebar.js"
 import "jquery";
 import "popper.js";
 // import "bootstrap";
