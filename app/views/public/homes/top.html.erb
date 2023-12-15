@@ -1,10 +1,7 @@
-
-<%= form_tag({controller:"line_plans", action:"search"}, method: :get) do %>
-  <% Area.all.each do |area| %>
-    <%= check_box :area_ids, area.area %><%= area.area %>
-  <% end %>
-  <% Content.all.each do |content| %>
-    <%= check_box :content_ids, content.content %><%= content.content %>
-  <% end %>
-  <%= submit_tag '検索' %>
-<% end %>
+<div class="container-fluid top-image">
+  <div class="row">
+    <div class="col">
+      <h2 class="top-title">Top</h2>
+    </div>
+  </div>
+</div>

@@ -28,7 +28,7 @@ module ApplicationHelper
       {
         icon: "fa-solid fa-house",
         path: admin_root_path,
-        text: "管理者TOP"
+        text: "管理者Top"
       },
       {
         icon: "fa-solid fa-users",
@@ -51,6 +51,11 @@ module ApplicationHelper
   # ログイン後のヘッダー。
   def signed_nav_items
     [
+      {
+        icon: "fa-solid fa-user",
+        path: root_path,
+        text: "Topページ"
+      },
       {
         icon: "fa-solid fa-user",
         path: mypage_customers_path,
@@ -106,12 +111,12 @@ module ApplicationHelper
       {
         icon: "fa-solid fa-house",
         path: root_path,
-        text: "ログイン前"
+        text: "Topページ"
       },
       {
         icon: "fa-solid fa-link",
         path: about_path,
-        text: "About"
+        text: "Aboutページ"
       },
       {
         icon: "fa-solid fa-user-plus",

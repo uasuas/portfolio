@@ -39,17 +39,17 @@
             </div>
             <div class="col-5 offset-1">
               <h5>対応エリア</h5>
-              <ul>
+              <ul class="line_plan_items">
                 <% @line_plan.areas.each do |area| %>
-                  <li><%= link_to search_path(content: area.area) do %><%= area.area %><% end %></li>
+                  <li><%= area.area %></li>
                 <% end %>
               </ul>
             </div>
             <div class="col-6">
               <h5>回線内容</h5>
-              <ul>
+              <ul class="line_plan_items">
                 <% @line_plan.contents.each do |content| %>
-                  <li><%= link_to search_path(content: content.content) do %><%= content.content %><% end %></li>
+                  <li><%= content.content %></li>
                 <% end %>
               </ul>
             </div>
@@ -57,7 +57,8 @@
               <h5>月額料金</h5>
             </div>
             <div class="col-11 col-lg-7 offset-1">
-              <%= @line_plan.monthly_fee %>
+              <!--number_with_delimiterヘルパーにて、数字に区切り文字を追加する。-->
+              <%= number_with_delimiter(@line_plan.monthly_fee, delimiter: ',') %>円
             </div>
             <div class="col-11 offset-1">
               <h5>内容</h5>

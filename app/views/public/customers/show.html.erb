@@ -4,47 +4,97 @@
       <h2>マイページ</h2>
       <div class="row">
         <div class="col-12 col-lg-4">
-          <h4 class="ml-4">お名前</h4>
-          <p class="text-center"><%= current_customer.name %></p>
-          <h4 class="ml-4">メールアドレス</h4>
-          <p class="text-center"><%= current_customer.email %></p>
-          <!--モーダルボタン-->
-          <div class="button_new">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.プロフィール編集') %></button>
-          </div>
-          <!--モーダル表示内容-->
-          <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content px-3">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-8 col-lg-11 ">
+              <h5 class="">お名前</h5>
+              <p class="ml-5"><%= current_customer.name %></p>
+              <h5 class="">メールアドレス</h5>
+              <p class="ml-5"><%= current_customer.email %></p>
+              <!--モーダルボタン-->
+              <div class="button_new mb-3">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.プロフィール編集') %></button>
+              </div>
+              <!--モーダル表示内容-->
+              <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content px-3">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="set_center_outer">
+                      <h2 class="page_title_en mb-3">プロフィール編集</h2>
+                    </div>
+                    <%= form_with model: @customer, url: mypage_update_customers_path, method: :patch do |f| %>
+                      <div class="form-row align-items-center">
+                        <div class="col-3">
+                          <%= f.label :name, "お名前" %>
+                        </div>
+                        <div class="col-11 col-sm-9">
+                          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+                        </div>
+                      </div>
+                      <div class="form-row align-items-center">
+                        <div class="col-3">
+                          <%= f.label :email, "メールアドレス" %>
+                        </div>
+                        <div class="col-11 col-sm-9">
+                          <%= f.text_field :email, autocomplete: "emai", class: "form-control" %>
+                        </div>
+                      </div>
+                      <div class="actions mb-4">
+                        <%= f.submit '登録', class:"btn btn-info" %>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
-                <div class="set_center_outer">
-                  <h2 class="page_title_en mb-3">プロフィール編集</h2>
+              </div>
+              <!--モーダルボタン-->
+              <div class="button_new mb-5">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#searchModal" data-whatever="@customer"><%= t('views.button.自身に合ったプランを見つける') %></button>
+              </div>
+              <!--モーダル表示内容-->
+              <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content px-3">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="set_center_outer">
+                      <h2 class="page_title_en mb-3">ご希望入力</h2>
+                    </div>
+                    <%= form_tag({controller:"line_plans", action:"search"}, method: :get) do %>
+                      <div class="row align-items-center mb-3">
+                        <div class="col-11 offset-1 mb-2">
+                          <h4>エリア（複数選択可）</h4>
+                        </div>
+                        <% Area.all.each do |area| %>
+                          <div class="col-3 text-center">
+                            <%= check_box :area_ids, area.area %>
+                            <%= area.area %>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class="row align-items-center mb-3">
+                        <div class="col-11 offset-1 mb-2">
+                          <h4>コンテンツ（複数選択可）</h4>
+                        </div>
+                        <% Content.all.each do |content| %>
+                          <div class="col-4 text-center">
+                            <%= check_box :content_ids, content.content %>
+                            <%= content.content %>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class="mb-4">
+                        <%= submit_tag '検索', class:"btn btn-info" %>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
-                <%= form_with model: @customer, url: mypage_update_customers_path, method: :patch do |f| %>
-                  <div class="form-row align-items-center">
-                    <div class="col-3">
-                      <%= f.label :name, "お名前" %>
-                    </div>
-                    <div class="col-11 col-sm-9">
-                      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
-                    </div>
-                  </div>
-                  <div class="form-row align-items-center">
-                    <div class="col-3">
-                      <%= f.label :email, "メールアドレス" %>
-                    </div>
-                    <div class="col-11 col-sm-9">
-                      <%= f.text_field :email, autocomplete: "emai", class: "form-control" %>
-                    </div>
-                  </div>
-                  <div class="actions mb-4">
-                    <%= f.submit '登録' %>
-                  </div>
-                <% end %>
               </div>
             </div>
           </div>

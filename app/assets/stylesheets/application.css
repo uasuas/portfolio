@@ -19,17 +19,34 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, main {
   height: 100%;
 }
 
-main {
-  padding-top: 40px;
+body {
+  background: linear-gradient(rgba(195, 219, 255, 0.2) 0%, rgba(22, 135, 237, 0.6) 100%);
+  object-fit: cover;
 }
 
 footer {
   position: sticky;
   top: 100vh;
+  backdrop-filter: blur(200px);
+  -webkit-backdrop-filter: blur(200px);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/*トップ。*/
+.top-image {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url(line);
+}
+.top-title {
+  margin: 40px 0 0 50px;
 }
 
 /*長文省略表示の設定。*/
@@ -57,11 +74,21 @@ label {
   margin: 0;
 }
 
+.table thead th, .table tbody td, .table th {
+  border-top: 0;
+  border-bottom: 2px solid rgba(97, 121, 115, 0.5);
+}
+
 /*modalの設定*/
 .modal-header {
   border-bottom: none;
 }
 
+.line_plan_items {
+  list-style: none;
+}
+
+/*サイドバー。*/
 .sidebar {
   position: fixed;
   top: 0;
@@ -73,6 +100,7 @@ label {
   flex-direction: column;
   background: linear-gradient(-50deg, rgba(22, 135, 237, 0.6) 0%, rgba(195, 219, 255, 0.2) 100%);
   backdrop-filter: blur(20px);
+  /* Safari用のプレフィックス */
   --webkit-backdrop-filter: blur(20px);
   border-right: 1px solid rgba(112, 175, 255, 0.8);
   /*0.3秒かけて広げる。*/

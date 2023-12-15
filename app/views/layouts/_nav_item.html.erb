@@ -1,6 +1,6 @@
 <!--application_helperから条件に応じて表示内容を呼び出す。-->
 <li class="">
-  <%= link_to item[:path], method: item[:method] || nil, class: "" do %>
+  <%= link_to item[:path], method: item[:method] || nil do %>
     <i class="fas <%= item[:icon] %>"></i>
     <%= item[:text] %>
   <% end %>
