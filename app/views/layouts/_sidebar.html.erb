@@ -8,21 +8,21 @@
       <hr>
         <h4>Main Menu</h4>
         <div class="menu">
-          <!--header内のコンテンツを、helperを活用し編集を行いやすくする為-->
+          <!--header内のコンテンツを、helperを活用し編集を行いやすくする為。-->
           <%= render partial: "layouts/nav_item", collection: nav_items, as: :item %>
         </div>
       </hr>
       <hr>
         <h4>Area Menu</h4>
         <div class="menu">
-          <!--header内のコンテンツを、helperを活用し編集を行いやすくする為-->
+          <!--header内のコンテンツを、helperにてarea情報を拾い中身をareaに変更。-->
           <%= render partial: "layouts/nav_item", collection: menu_areas, as: :item %>
         </div>
       </hr>
       <hr>
         <h4>Content Menu</h4>
         <div class="menu">
-          <!--header内のコンテンツを、helperを活用し編集を行いやすくする為-->
+          <!--header内のコンテンツを、helperにてcontent情報を拾い中身をcontentに変更。-->
           <%= render partial: "layouts/nav_item", collection: menu_contents, as: :item %>
         </div>
       </hr>

@@ -50,14 +50,14 @@ module ApplicationHelper
   end
   # ログイン後のヘッダー。
   def signed_nav_items
-    nav_items = [
+    [
       {
-        icon: "fa-solid fa-house",
+        icon: "fa-solid fa-user",
         path: mypage_customers_path,
         text: "マイページ"
       },
       {
-        icon: "fa-solid fa-users",
+        icon: "fa-solid fa-building",
         path: companies_path,
         text: "回線会社一覧"
       },
@@ -79,7 +79,7 @@ module ApplicationHelper
     area = Area.all
     area.each do |area|
       area_items << {
-        icon: "fa-solid fa-building",
+        icon: "fa-solid fa-map-location-dot",
         path: search_path(content: area.area),
         text: area.area
       }
@@ -92,7 +92,7 @@ module ApplicationHelper
     content = Content.all
     content.each do |content|
       content_items << {
-        icon: "fa-solid fa-building",
+        icon: "fa-solid fa-house",
         path: search_path(content: content.content),
         text: content.content
       }
