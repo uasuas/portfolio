@@ -43,7 +43,7 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-image: url(line);
+  background-image:  image-url("line.png");
 }
 .top-title {
   margin: 40px 0 0 50px;
