@@ -14,14 +14,14 @@ Admin.create(
 
 5.times do |n|
   Company.create(
-    name: "test#{n + 1}",
+    name: "サンプル企業#{n + 1}",
     zip_code: "123456#{n + 1}",
-    address: "adress#{n + 1}",
-    telephone_number: "000012345#{n + 1}",
+    address: "東京都新宿区#{n + 1}",
+    telephone_number: "0120123456#{n + 1}",
   )
 end
 
-# 診断結果用seed
+# エリア
 areas = [
   "東京",
   "千葉",
@@ -48,5 +48,14 @@ end
 contents.each do |content|
   Content.create(
     content: "#{content}"
+  )
+end
+
+5.times do |n|
+  Customer.create(
+    name: "サンプルname#{n + 1}",
+    email: "test#{n + 1}@mail",
+    password: "11111#{n + 1}",
+    is_active: true
   )
 end

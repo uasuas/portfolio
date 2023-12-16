@@ -1,0 +1,24 @@
+<div class="col-12 col-lg-12 col-sm-6">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="col-5 col-md-4">企業名</th>
+        <td><%= line_plan.company.name %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <!--application_helper.rbでフォーマットしたものを呼び出している。-->
+        <td>〒<%= format_zip_code(line_plan.company.zip_code) %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= line_plan.company.address %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <!--application_helper.rbでフォーマットしたものを呼び出している。-->
+        <td><%= format_telephone_number(line_plan.company.telephone_number) %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

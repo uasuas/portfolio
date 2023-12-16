@@ -20,6 +20,18 @@ module ApplicationHelper
       signed_nav_items_content
     end
   end
+  
+  def format_telephone_number(telephone_number)
+    telephone_number.gsub(/(\d{3})(\d{4})(\d{4})/, '\1-\2-\3')
+  end
+  
+  def format_zip_code(zip_code)
+    zip_code.to_s.insert(3, "-") if zip_code.present? && zip_code.length == 7
+  end
+  
+  def format_monthly_fee(amount)
+    number_with_delimiter(amount, delimiter: ',') if amount.present?
+  end
 
   private
   # 管理者用ヘッダー。

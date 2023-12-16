@@ -8,28 +8,7 @@
             <div class="image_tag col-12 col-lg-12 col-sm-6">
               <%= image_tag @line_plan.company.get_company_image(200,200) %>
             </div>
-            <div class="col-12 col-lg-12 col-sm-6">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th class="col-5 col-md-4">企業名</th>
-                    <td><%= @line_plan.company.name %></td>
-                  </tr>
-                  <tr>
-                    <th>郵便番号</th>
-                    <td><%= @line_plan.company.zip_code %></td>
-                  </tr>
-                  <tr>
-                    <th>住所</th>
-                    <td><%= @line_plan.company.address %></td>
-                  </tr>
-                  <tr>
-                    <th>電話番号</th>
-                    <td><%= @line_plan.company.telephone_number %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <%= render "layouts/company-table", line_plan: @line_plan %>
             <div class="col-11 offset-1">
               <%= link_to "企業情報編集", edit_admin_company_path(@line_plan.company) %>
             </div>
@@ -45,7 +24,7 @@
             </div>
             <div class="col-5 offset-1">
               <h5>対応エリア</h5>
-              <ul>
+              <ul class="line_plan_items">
                 <% @line_plan.areas.each do |area| %>
                   <li><%= area.area %></li>
                 <% end %>
@@ -53,7 +32,7 @@
             </div>
             <div class="col-6">
               <h5>回線内容</h5>
-              <ul>
+              <ul class="line_plan_items">
                 <% @line_plan.contents.each do |content| %>
                   <li><%= content.content %></li>
                 <% end %>
@@ -63,7 +42,8 @@
               <h5>月額料金</h5>
             </div>
             <div class="col-11 col-lg-7 offset-1">
-              <%= @line_plan.monthly_fee %>
+              <!--application_helper.rbでフォーマットしたものを呼び出している。-->
+              <%= format_monthly_fee(@line_plan.monthly_fee) %>円
             </div>
             <div class="col-11 offset-1">
               <h5>内容</h5>

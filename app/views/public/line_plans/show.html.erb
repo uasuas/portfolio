@@ -8,28 +8,7 @@
             <div class="image_tag col-12 col-lg-12 col-sm-6">
               <%= image_tag @line_plan.company.get_company_image(200,200) %>
             </div>
-            <div class="col-12 col-lg-12 col-sm-6">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th class="col-5 col-md-4">企業名</th>
-                    <td><%= @line_plan.company.name %></td>
-                  </tr>
-                  <tr>
-                    <th>郵便番号</th>
-                    <td><%= @line_plan.company.zip_code %></td>
-                  </tr>
-                  <tr>
-                    <th>住所</th>
-                    <td><%= @line_plan.company.address %></td>
-                  </tr>
-                  <tr>
-                    <th>電話番号</th>
-                    <td><%= @line_plan.company.telephone_number %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <%= render "layouts/company-table", line_plan: @line_plan %>
           </div>
         </div>
         <div class="col-12 col-lg-8">
@@ -57,8 +36,8 @@
               <h5>月額料金</h5>
             </div>
             <div class="col-11 col-lg-7 offset-1">
-              <!--number_with_delimiterヘルパーにて、数字に区切り文字を追加する。-->
-              <%= number_with_delimiter(@line_plan.monthly_fee, delimiter: ',') %>円
+              <!--application_helper.rbでフォーマットしたものを呼び出している。-->
+              <%= format_monthly_fee(@line_plan.monthly_fee) %>円
             </div>
             <div class="col-11 offset-1">
               <h5>内容</h5>
