@@ -3,8 +3,8 @@
     <div class="col">
       <h2>企業情報ページ</h2>
       <div class="row">
-        <div class="col-12 col-lg-4">
-          <div class="row">
+        <div class="side-content col-12 col-lg-4">
+          <div class="side-content-sticky row">
             <div class="image_tag col-12 col-lg-12 col-sm-6">
               <%= image_tag @company.get_company_image(200,200) %>
             </div>
@@ -31,7 +31,7 @@
                 <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
                 <tr onclick="window.location='<%= line_plan_path(plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
                   <td><%= plan.name %></td>
-                  <td><%= plan.monthly_fee %></td>
+                  <td><%= format_monthly_fee(plan.monthly_fee) %>円</td>
                   <td>
                     <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
                     <% contents = plan.contents.map(&:content).join(', ') %>

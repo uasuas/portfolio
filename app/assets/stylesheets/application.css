@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 
-html, body{
+html, body {
   min-height: 100vh;
 }
 
@@ -29,13 +29,13 @@ body {
 }
 
 main {
-  margin-left: 30px;
+  margin: 30px 0 0 30px;
 }
 
 footer {
   position: sticky;
   /*footerの大きさ分引いた位置に設置。*/
-  top: calc(100vh - 120px);
+  top: calc(100vh - 72px);
   backdrop-filter: blur(200px);
   -webkit-backdrop-filter: blur(200px);
   background-color: rgba(255, 255, 255, 0.2);
@@ -52,6 +52,15 @@ footer {
 }
 .top-title {
   margin: 40px 0 0 50px;
+}
+
+
+.side-content {
+  min-height: 100%;
+}
+.side-content-sticky {
+  position: sticky;
+  top: 5%;
 }
 
 /*長文省略表示の設定。*/

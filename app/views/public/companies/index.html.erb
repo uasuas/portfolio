@@ -16,9 +16,11 @@
             <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
             <tr onclick="window.location='<%= company_path(company) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
               <td><%= company.name %></td>
-              <td><%= company.zip_code %></td>
+              <!--application_helper.rbでフォーマットしたものを呼び出している。-->
+              <td>〒<%= format_zip_code(company.zip_code) %></td>
               <td><%= company.address %></td>
-              <td><%= company.telephone_number %></td>
+              <!--application_helper.rbでフォーマットしたものを呼び出している。-->
+              <td><%= format_telephone_number(company.telephone_number) %></td>
             </tr>
           <% end %>
         </tbody>

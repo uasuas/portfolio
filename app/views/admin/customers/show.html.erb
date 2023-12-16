@@ -3,21 +3,21 @@
     <div class="col">
       <h2>会員情報</h2>
       <div class="row">
-        <div class="col-12 col-lg-4">
-          <div class="row">
+        <div class="side-content col-12 col-lg-4">
+          <div class="side-content-sticky row">
             <div class="col-12 col-lg-12 col-sm-6">
               <table class="table">
                 <tbody>
                   <tr>
-                    <th class="col-5 col-md-4">名前</th>
+                    <th class="col-5 col-md-4">name</th>
                     <td><%= @customer.name %></td>
                   </tr>
                   <tr>
-                    <th>郵便番号</th>
+                    <th>mail</th>
                     <td><%= @customer.email %></td>
                   </tr>
                   <tr>
-                    <th>住所</th>
+                    <th>status</th>
                     <td><%= @customer.is_active ? "会員" : "退会" %></td>
                   </tr>
                 </tbody>

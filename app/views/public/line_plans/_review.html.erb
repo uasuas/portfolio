@@ -2,6 +2,7 @@
   <%= form_with model: [line_plan, review], url: line_plan_reviews_path(line_plan), method: :post, local: false do |f| %>
     <!--Raty設定用記述。-->
     <div class="form-group" id="star">
+      <h5>このプランの評価はこちらから</h5>
       <div class="form-row align-items-center">
         <div class="col-1 text-center">
           <%= f.label :star, "評価" %>
@@ -28,9 +29,10 @@
       });
     </script>
     <%= f.text_area :content, rows: '5', placeholder: "内容を入力してください。", class:"w-100" %><br/>
-    <%= f.submit "送信", class:"mb-3" %>
+    <%= f.submit "送信", class:"mb-3 btn btn-info" %>
   <% end %>
 <% end %>
+<h5>レビュー内容</h5>
 <% line_plan.reviews.reverse.each do |review| %>
   <div id="review-card_<%= review.id %>">
     <%= render "public/customers/review-card", review: review %>
