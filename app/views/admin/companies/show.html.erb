@@ -8,28 +8,7 @@
             <div class="image_tag col-12 col-lg-12 col-sm-6">
               <%= image_tag @company.get_company_image(200,200) %>
             </div>
-            <div class="col-12 col-lg-12 col-sm-6">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th class="col-5 col-md-4">企業名</th>
-                    <td><%= @company.name %></td>
-                  </tr>
-                  <tr>
-                    <th>郵便番号</th>
-                    <td><%= @company.zip_code %></td>
-                  </tr>
-                  <tr>
-                    <th>住所</th>
-                    <td><%= @company.address %></td>
-                  </tr>
-                  <tr>
-                    <th>電話番号</th>
-                    <td><%= @company.telephone_number %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <%= render "layouts/company-table", company: @company %>
             <div class="col-11 offset-1">
               <%= link_to "企業情報編集", edit_admin_company_path(@company) %>
             </div>
