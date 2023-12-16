@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-10 col-xl-5 col-lg-6 col-md-8 col-sm-9">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12">
+          <div class="text-center my-5 py-3">
+            <h3 class="my-5">本当に退会しますか？</h3>
+            <p class="h5 my-4">
+              退会すると、会員登録情報や<br/>
+              これまでのレビューの履歴が閲覧できなくなります。<br/>
+              退会する場合は、「退会する」をクリックしてください。
+            </p>
+            <div>
+              <%= link_to mypage_customers_path, class:"btn btn-info mx-4" do %>
+                退会しない
+              <% end %>
+              <%= link_to leave_customers_path, method: :patch, data: { confirm: "本当に退会しますか？"}, class: "btn btn-danger mx-4" do %>
+                退会する
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,11 +5,13 @@
       <div class="row">
         <div class="col-12 col-lg-4">
           <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-8 col-lg-11 ">
+            <div class="col-5 col-lg-11 offset-1">
               <h5 class="">お名前</h5>
               <p class="ml-5"><%= current_customer.name %></p>
               <h5 class="">メールアドレス</h5>
               <p class="ml-5"><%= current_customer.email %></p>
+            </div>
+            <div class="col-6 col-lg-11">
               <!--モーダルボタン-->
               <div class="button_new mb-3">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.プロフィール編集') %></button>
@@ -51,8 +53,8 @@
                 </div>
               </div>
               <!--モーダルボタン-->
-              <div class="button_new mb-5">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#searchModal" data-whatever="@customer"><%= t('views.button.自身に合ったプランを見つける') %></button>
+              <div class="button_new mb-3">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#searchModal" data-whatever="@customer"><%= t('views.button.プランを見つける') %></button>
               </div>
               <!--モーダル表示内容-->
               <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,6 +97,11 @@
                     <% end %>
                   </div>
                 </div>
+              </div>
+              <div class="mb-5">
+                <%= link_to confirm_customers_path, class: "btn btn-danger" do %>
+                  退会する
+                <% end %>
               </div>
             </div>
           </div>
