@@ -20,15 +20,15 @@ module ApplicationHelper
       signed_nav_items_content
     end
   end
-  
+
   def format_telephone_number(telephone_number)
     telephone_number.gsub(/(\d{3})(\d{4})(\d{4})/, '\1-\2-\3')
   end
-  
+
   def format_zip_code(zip_code)
     zip_code.to_s.insert(3, "-") if zip_code.present? && zip_code.length == 7
   end
-  
+
   def format_monthly_fee(amount)
     number_with_delimiter(amount, delimiter: ',') if amount.present?
   end
@@ -129,6 +129,16 @@ module ApplicationHelper
         icon: "fa-solid fa-link",
         path: about_path,
         text: "Aboutページ"
+      },
+      {
+        icon: "fa-solid fa-building",
+        path: companies_path,
+        text: "回線会社一覧"
+      },
+      {
+        icon: "fa-solid fa-book-open",
+        path: line_plans_path,
+        text: "回線プラン一覧"
       },
       {
         icon: "fa-solid fa-user-plus",
