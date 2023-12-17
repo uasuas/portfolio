@@ -1,0 +1,44 @@
+<!--モーダル表示内容-->
+<div class="modal fade" id="inquiriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content px-3">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="set_center_outer">
+        <h2 class="page_title_en mb-3">お問い合わせ</h2>
+      </div>
+      <%= form_with model: Inquiry.new, url: inquiries_path, method: :post do |f| %>
+        <div class="form-row align-items-center">
+          <div class="col-4">
+            <%= f.label :name, "お名前" %>
+          </div>
+          <div class="col-11 col-sm-8">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-row align-items-center">
+          <div class="col-4">
+            <%= f.label :email, "メールアドレス" %>
+          </div>
+          <div class="col-11 col-sm-8">
+            <%= f.email_field :email, autocomplete: "emai", class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-row align-items-center">
+          <div class="col-4">
+            <%= f.label :content, "お問い合わせ内容" %>
+          </div>
+          <div class="col-11 col-sm-8">
+            <%= f.text_area :content, autocomplete: "emai", class: "form-control" %>
+          </div>
+        </div>
+        <div class="actions mb-4">
+          <%= f.submit '送信', class:"btn btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

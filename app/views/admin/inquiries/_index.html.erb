@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-2">問合せ日</th>
+      <th class="col-2">名前</th>
+      <th class="col-2">メールアドレス</th>
+      <th class="col-4">問い合わせ内容</th>
+      <th class="col-2">確認状況</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% inquiries.each do |inquiry| %>
+      <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
+      <tr onclick="window.location='<%= admin_inquiry_path(inquiry) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+        <td><%= inquiry.created_at.strftime("%Y/%m/%d") %></td>
+        <td><%= inquiry.name %></td>
+        <td><%= inquiry.email %></td>
+        <td><%= custom_truncate(inquiry.content) %></td>
+        <td><%= inquiry.status ? "確認済み" : "未確認" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

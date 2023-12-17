@@ -4,5 +4,6 @@ class Admin::HomesController < ApplicationController
     @companies = Company.all
     @line_plans = LinePlan.all
     @reviews = Review.all
+    @inquiries = Inquiry.all
   end
 end

@@ -1,2 +1,7 @@
-<h1>Admin::Inquiries#show</h1>
-<p>Find me in app/views/admin/inquiries/show.html.erb</p>
+
+<%= @inquiry.created_at.strftime("%Y/%m/%d") %>
+<%= @inquiry.name %>
+<%= @inquiry.email %>
+<%= @inquiry.content %>
+<%= @inquiry.status ? "確認済み" : "未確認" %>
+<%= link_to "戻る", admin_inquiry_path(@inquiry), method: :patch %>

@@ -9,6 +9,7 @@
             <h2 id="title2" class="tab-title"></h2>
             <h2 id="title3" class="tab-title"></h2>
             <h2 id="title4" class="tab-title"></h2>
+            <h2 id="title5" class="tab-title"></h2>
           </div>
         </div>
       </div>
@@ -16,22 +17,26 @@
     <div class="col-12">
       <div class="wrap">
         <ul id="tab-menu">
-          <li><a href="#tab1" class="active">会員一覧</a></li>
-          <li><a href="#tab2" class="">企業一覧</a></li>
-          <li><a href="#tab3" class="">プラン一覧</a></li>
-          <li><a href="#tab4" class="">評価一覧</a></li>
+          <li><a href="#tab1" class="active">問合せ一覧</a></li>
+          <li><a href="#tab2" class="">会員一覧</a></li>
+          <li><a href="#tab3" class="">企業一覧</a></li>
+          <li><a href="#tab4" class="">プラン一覧</a></li>
+          <li><a href="#tab5" class="">評価一覧</a></li>
         </ul>
         <div id="tab-contents">
           <div id="tab1" class="tab">
-            <%= render "admin/customers/index", customers: @customers %>
+            <%= render "admin/inquiries/index", inquiries: @inquiries %>
           </div>
           <div id="tab2" class="tab">
-            <%= render "admin/companies/index", companies: @companies %>
+            <%= render "admin/customers/index", customers: @customers %>
           </div>
           <div id="tab3" class="tab">
-            <%= render "admin/line_plans/index", line_plans: @line_plans %>
+            <%= render "admin/companies/index", companies: @companies %>
           </div>
           <div id="tab4" class="tab">
+            <%= render "admin/line_plans/index", line_plans: @line_plans %>
+          </div>
+          <div id="tab5" class="tab">
             <%= render "admin/reviews/index", reviews: @reviews %>
           </div>
         </div>

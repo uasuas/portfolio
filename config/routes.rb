@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # publicをURLに含めたくない為、scope moduleを使用。
   scope module: :public do
     resources :companies, only: %i[index show]
+    resources :inquiries, only: %i[create]
     resources :line_plans, only: %i[index show] do
       resources :reviews, only: %i[create destroy]
     end
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
     resources :companies, except: :index
     resources :line_plans, except: :index
     resources :reviews, only: %i[destroy]
+    resources :inquiries, only: %i[show update destroy]
     resources :customers, except: :destroy
   end
 
