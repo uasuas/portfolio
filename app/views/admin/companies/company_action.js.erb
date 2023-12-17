@@ -1,5 +1,7 @@
 $('#company-list-content_<%= @company.id %>').remove();
 <!--フラッシュメッセージを表示。-->
-$('#flash').html('<%= j(render 'layouts/flash') %>').show();
+$('#flash').show()
+<!--フラッシュの内容を@company.valid?で、validationの結果によってture:falseの場合で色を変え、@messegeの内容を変更する。-->
+$('#flash').html('<div class="alert alert-<%= j(@company.valid? ? 'primary' : 'danger') %> text-center" role="alert"><strong><%= j(@messege) %></strong></div>');
 <!--表示したメッセージを３秒後にゆっくり非表示。-->
 $('#flash').delay(3000).fadeOut('slow');

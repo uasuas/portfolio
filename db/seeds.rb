@@ -76,3 +76,23 @@ end
     is_active: true
   )
 end
+
+5.times do |n|
+  customer = Customer.first
+  line_plan = LinePlan.first
+  Review.create(
+    line_plan: line_plan,
+    customer: customer,
+    star: 4,
+    content: 'このプランはとても良かったです。'
+  )
+end
+
+5.times do |n|
+  Inquiry.create(
+    name: "test#{n + 1}",
+    email: "test#{n + 1}@mail",
+    content: "電話に関する問い合わせ内容。",
+    status: false
+  )
+end
