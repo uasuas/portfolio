@@ -48,7 +48,7 @@
           <% @line_plans.each do |line_plan| %>
             <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
               <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
-              <td><%= line_plan.name %></td>
+              <td><%= line_plan.company.name %></td>
               <td><%= line_plan.name %></td>
             </tr>
           <% end %>

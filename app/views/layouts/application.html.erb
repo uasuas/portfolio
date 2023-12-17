@@ -15,15 +15,20 @@
   </head>
 
   <body>
-      <%= render 'layouts/sidebar' %>
-      <main>
-        <div id="flash">
-          <%= render 'layouts/flash' %>
+    <%= render 'layouts/sidebar' %>
+    <main>
+      <div id="flash">
+        <%= render 'layouts/flash' %>
+      </div>
+      <%= yield %>
+      <%= render "layouts/public-inquiry" %>
+      <div class="button_search">
+        <div class="button_new">
+          <button type="button" class="btn" data-toggle="modal" data-target="#searchModal" data-whatever="@customer"><%= t('views.button.プランを探す') %></button>
         </div>
-        <%= render "layouts/public-inquiry" %>
-        <%= yield %>
-      </main>
-      <%= render "layouts/footer"%>
-
+      </div>
+      <%= render "layouts/search-modal" %>
+    </main>
+    <%= render "layouts/footer"%>
   </body>
 </html>
