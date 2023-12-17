@@ -1,7 +1,23 @@
-
-<%= @inquiry.created_at.strftime("%Y/%m/%d") %>
-<%= @inquiry.name %>
-<%= @inquiry.email %>
-<%= @inquiry.content %>
-<%= @inquiry.status ? "確認済み" : "未確認" %>
-<%= link_to "戻る", admin_inquiry_path(@inquiry), method: :patch %>
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-10 col-xl-5 col-lg-6 col-md-8 col-sm-9">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="marked-heading col-12">
+          <h2>問合せ内容</h2>
+        </div>
+          <p class="col-12 col-sm-6">日付</p>
+          <p class="col-12 col-sm-6"><%= @inquiry.created_at.strftime("%Y/%m/%d") %></p>
+          <p class="col-12 col-sm-6">名前</p>
+          <p class="col-12 col-sm-6"><%= @inquiry.name %></p>
+          <p class="col-12 col-sm-6">メールアドレス</p>
+          <p class="col-12 col-sm-6"><%= @inquiry.email %></p>
+          <p class="col-12"><%= @inquiry.status ? "確認済み" : "未確認" %>の内容です。</p>
+          <p class="col-12">内容</p>
+          <p class="col-12"><%= @inquiry.content %></p>
+          <div class="actions col-12">
+            <%= link_to "戻る", admin_inquiry_path(@inquiry), method: :patch, class: "btn btn-info" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

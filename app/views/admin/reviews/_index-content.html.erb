@@ -1,6 +1,7 @@
-<tr id="review-list-content_<%= review.id %>">
-  <td><%= review.created_at.strftime("%Y/%m/%d") %></td>
-  <td><%= review.customer.name %></td>
-  <td><%= review.content %></td>
+<!--テーブル全体にカーソル変化とハイライトし、削除以外をリンクに変更する。-->
+<tr id="review-list-content_<%= review.id %>" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+  <td onclick="window.location='<%= admin_customer_path(review.customer) %>'"><%= review.created_at.strftime("%Y/%m/%d") %></td>
+  <td onclick="window.location='<%= admin_customer_path(review.customer) %>'"><%= review.customer.name %></td>
+  <td onclick="window.location='<%= admin_customer_path(review.customer) %>'"><%= review.content %></td>
   <td class="text-right"><%= link_to "削除", admin_review_path(review.id), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></td>
 </tr>
