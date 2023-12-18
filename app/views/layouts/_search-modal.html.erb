@@ -1,42 +1,44 @@
 <!--モーダル表示内容-->
-<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content px-3">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="set_center_outer">
-        <h2 class="page_title_en mb-3">ご希望入力</h2>
-      </div>
-      <%= form_tag({controller:"line_plans", action:"search"}, method: :get) do %>
-        <div class="row align-items-center mb-3">
-          <div class="col-11 offset-1 mb-2">
-            <h4>エリア（複数選択可）</h4>
-          </div>
-          <% Area.all.each do |area| %>
-            <div class="col-3 text-center">
-              <%= check_box :area_ids, area.area %>
-              <%= area.area %>
+<% if customer_signed_in?  %>
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content px-3">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="set_center_outer">
+          <h2 class="page_title_en mb-3">ご希望入力</h2>
+        </div>
+        <%= form_tag({controller:"line_plans", action:"search"}, method: :get) do %>
+          <div class="row align-items-center mb-3">
+            <div class="col-11 offset-1 mb-2">
+              <h4>エリア（複数選択可）</h4>
             </div>
-          <% end %>
-        </div>
-        <div class="row align-items-center mb-3">
-          <div class="col-11 offset-1 mb-2">
-            <h4>コンテンツ（複数選択可）</h4>
+            <% Area.all.each do |area| %>
+              <div class="col-3 text-center">
+                <%= check_box :area_ids, area.area %>
+                <%= area.area %>
+              </div>
+            <% end %>
           </div>
-          <% Content.all.each do |content| %>
-            <div class="col-4 text-center">
-              <%= check_box :content_ids, content.content %>
-              <%= content.content %>
+          <div class="row align-items-center mb-3">
+            <div class="col-11 offset-1 mb-2">
+              <h4>コンテンツ（複数選択可）</h4>
             </div>
-          <% end %>
-        </div>
-        <div class="mb-4">
-          <%= submit_tag '検索', class:"btn btn-info" %>
-        </div>
-      <% end %>
+            <% Content.all.each do |content| %>
+              <div class="col-4 text-center">
+                <%= check_box :content_ids, content.content %>
+                <%= content.content %>
+              </div>
+            <% end %>
+          </div>
+          <div class="mb-4">
+            <%= submit_tag '検索', class:"btn btn-info" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

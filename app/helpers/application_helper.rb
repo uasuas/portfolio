@@ -76,12 +76,12 @@ module ApplicationHelper
         text: "管理者Top"
       },
       {
-        icon: "fa-solid fa-users",
+        icon: "fa-solid fa-folder-plus",
         path: new_admin_company_path,
         text: "企業登録"
       },
       {
-        icon: "fa-solid fa-book-open",
+        icon: "fa-solid fa-file-circle-plus",
         path: new_admin_line_plan_path,
         text: "プラン登録"
       },

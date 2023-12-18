@@ -17,35 +17,28 @@
               <h2>プラン一覧</h2>
             </div>
           </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="col-2">プラン名</th>
-                <th class="col-2">月額料金</th>
-                <th class="col-4">回線種類</th>
-                <th class="col-4">対応地域</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @company.line_plans.each do |plan| %>
-                <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-                <tr onclick="window.location='<%= line_plan_path(plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
-                  <td><%= plan.name %></td>
-                  <td><%= format_monthly_fee(plan.monthly_fee) %>円</td>
-                  <td>
+          <% @company.line_plans.each do |plan| %>
+              <div class="card new-badge" onclick="window.location='<%= line_plan_path(plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+                <div class="card-body">
+                  <h5 class="card-title"><%= plan.name %></h5>
+                  <p class="card-text">月額料金：<%= format_monthly_fee(plan.monthly_fee) %>円</p>
+                  <p class="card-text">
+                    プラン内容：
                     <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
                     <% contents = plan.contents.map(&:content).join(', ') %>
                     <%= contents %>
-                  </td>
-                  <td>
+                  </p>
+                  <p class="card-text">
+                    対応地域：
                     <!--mapでプランに紐ずくエリア情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
                     <% areas = plan.areas.map(&:area).join(', ') %>
                     <%= areas %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+                  </p>
+                  <h5 class="card-title">プラン説明</h5>
+                  <p class="card-text"><%= plan.introduction %></p>
+                </div>
+              </div>
+          <% end %>
         </div>
       </div>
     </div>

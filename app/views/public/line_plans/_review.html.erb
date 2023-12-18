@@ -32,7 +32,7 @@
     <%= f.submit "送信", class:"mb-3 btn btn-info" %>
   <% end %>
 <% end %>
-<h5>レビュー内容</h5>
+<h5>レビュー <%= line_plan.reviews.count %>件</h5>
 <% line_plan.reviews.reverse.each do |review| %>
   <div id="review-card_<%= review.id %>">
     <%= render "public/customers/review-card", review: review %>
