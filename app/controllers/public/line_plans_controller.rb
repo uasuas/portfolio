@@ -10,26 +10,38 @@ class Public::LinePlansController < ApplicationController
 
   def search
     @word = params[:content]
-    @areas = Area.where("area LIKE ?", "#{@word}")
-    @contents = Content.where("content LIKE ?", "#{@word}")
+    @areas = Area.where("area LIKE ?", "%#{@word}%")
+    @contents = Content.where("content LIKE ?", "%#{@word}%")
     @line_plans = []
-
+    
     if params[:area_ids].present?
-      params[:area_ids].each do |key, value|
-        if value == "1"
-          area_line_plans = Area.find_by(area: key).line_plans
-          @line_plans = @line_plans.empty? ? area_line_plans : @line_plans & area_line_plans
-        end
-      end
+      @areas = []
+      @contents = []
+      selected_area_ids = params[:area_ids].select { |_, v| v == "1" }.keys
+      area_line_plan_ids = selected_area_ids.any? ? 
+      selected_area_ids.map { |area_id| Area.find_by(area: area_id)&.line_plans&.pluck(:id) || [] }.reduce(:&) : nil
     end
+    
     if params[:content_ids].present?
-      params[:content_ids].each do |key, value|
-        if value == "1"
-          content_line_plans = Content.find_by(content: key).line_plans
-          @line_plans = @line_plans.empty? ? content_line_plans : @line_plans & content_line_plans
-        end
-      end
+      @areas = []
+      @contents = []
+      selected_content_ids = params[:content_ids].select { |_, v| v == "1" }.keys
+     content_line_plan_ids = selected_content_ids.any? ? 
+      selected_content_ids.map { |content_id| Content.find_by(content: content_id)&.line_plans&.pluck(:id) || [] }.reduce(:&) : nil
     end
+    
+    if area_line_plan_ids && content_line_plan_ids
+      common_line_plan_ids = area_line_plan_ids & content_line_plan_ids
+    elsif area_line_plan_ids
+      common_line_plan_ids = area_line_plan_ids
+    elsif content_line_plan_ids
+      common_line_plan_ids = content_line_plan_ids
+    else
+      common_line_plan_ids = []
+    end
+
+    @line_plans = LinePlan.where(id: common_line_plan_ids)
+    
     render "public/line_plans/search"
   end
 
