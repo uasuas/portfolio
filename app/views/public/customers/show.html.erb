@@ -10,11 +10,13 @@
               <p class="ml-5"><%= current_customer.name %></p>
               <h5 class="">メールアドレス</h5>
               <p class="ml-5"><%= current_customer.email %></p>
+              <h5 class="">レビュー件数</h5>
+              <p class="ml-5"><%= current_customer.reviews.count %>件</p>
             </div>
             <div class="col-6 col-lg-11">
               <!--モーダルボタン-->
               <div class="button_new mb-3">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.プロフィール編集') %></button>
+                <button type="button" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.プロフィール編集') %></button>
               </div>
               <!--モーダル表示内容-->
               <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,7 +55,7 @@
                 </div>
               </div>
               <div class="mb-5">
-                <%= link_to confirm_customers_path, class: "btn btn-danger" do %>
+                <%= link_to confirm_customers_path, class: "btn btn-danger btn-sm btn-block" do %>
                   退会する
                 <% end %>
               </div>

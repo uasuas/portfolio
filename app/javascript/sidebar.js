@@ -17,7 +17,7 @@ document.addEventListener('turbolinks:load', () => {
   });
 
   document.addEventListener('click', function(event) {
-    // sidebarの要素内のclickであればfalse、要素外ならクラスの削除とopenの非表示。
+    // sidebarの要素内のclickであればfalse、要素外ならクラスの削除とopenの表示。
     if (!sidebar.contains(event.target)) {
       sidebar.classList.remove('active');
       open.style.display = 'block';

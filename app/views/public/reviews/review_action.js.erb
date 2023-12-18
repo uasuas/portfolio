@@ -1,5 +1,6 @@
 $('#review-card_<%= @review.id %>').remove();
 $('#review-action').html('<%= j(render "public/line_plans/review", line_plan: @line_plan, review: @review) %>');
+$('#review-average').html('<%= j(render "public/line_plans/review-average", line_plan: @line_plan) %>');
 <!--コメントの入力formのidを指定して空にする。-->
 $('#review_content').val("")
 <!--フラッシュメッセージを表示。-->

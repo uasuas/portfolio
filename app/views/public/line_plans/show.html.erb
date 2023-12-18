@@ -5,16 +5,13 @@
       <div class="row">
         <div class="side-content col-12 col-lg-4">
           <div class="side-content-sticky row">
-            <div class="image_tag col-12 col-lg-12 col-sm-6">
-              <%= image_tag @line_plan.company.get_company_image(200,200) %>
-            </div>
             <%= render "layouts/company-table", company: @line_plan.company %>
           </div>
         </div>
         <div class="col-12 col-lg-8">
           <div class="row">
             <div class="col-12">
-              <h3><%= @line_plan.name %></h3>
+              <h3 class="marked-heading"><%= @line_plan.name %></h3>
             </div>
             <div class="col-5 offset-1">
               <h5>対応エリア</h5>
@@ -38,6 +35,13 @@
             <div class="col-11 col-lg-7 offset-1">
               <!--application_helper.rbでフォーマットしたものを呼び出している。-->
               <%= format_monthly_fee(@line_plan.monthly_fee) %>円
+            </div>
+            <div class="col-11 col-lg-3 offset-1">
+              <h5>総合評価</h5>
+            </div>
+            <div id="review-average" class="col-11 col-lg-7 offset-1">
+              <!--reviewの平均点を表示。-->
+              <%= render "public/line_plans/review-average", line_plan: @line_plan %>
             </div>
             <div class="col-11 offset-1">
               <h5>内容</h5>

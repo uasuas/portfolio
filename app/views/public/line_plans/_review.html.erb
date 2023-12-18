@@ -1,36 +1,38 @@
 <% if customer_signed_in?  %>
-  <%= form_with model: [line_plan, review], url: line_plan_reviews_path(line_plan), method: :post, local: false do |f| %>
-    <!--Raty設定用記述。-->
-    <div class="form-group" id="star">
-      <h5>このプランの評価はこちらから</h5>
-      <div class="form-row align-items-center">
-        <div class="col-1 text-center">
-          <%= f.label :star, "評価" %>
-        </div>
-        <div class="col-5">
-          <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
-          <div id="post_raty"></div>
-        </div>
-      </div>
-    </div>
-    <script>
-      $(function() {
-        let elem = document.querySelector('#post_raty');
-        if (elem == null) return;
+  <!--Raty設定用記述。-->
+  <div class="form-group" id="star">
+    <h5>このプランの評価はこちらから</h5>
+    <div>
+      <%= form_with model: [line_plan, review], url: line_plan_reviews_path(line_plan), method: :post, local: false do |f| %>
+        <div class="form-row align-items-center">
+          <div class="col-1 text-center">
+            <%= f.label :star, "評価" %>
+          </div>
+          <div class="col-5">
+            <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+            <div id="post_raty"></div>
+          </div>
+          <script>
+            $(function() {
+              let elem = document.querySelector('#post_raty');
+              if (elem == null) return;
 
-        elem.innerHTML = ""
-        let opt = {
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'review[star]',
-        };
-        raty(elem, opt);
-      });
-    </script>
-    <%= f.text_area :content, rows: '5', placeholder: "内容を入力してください。", class:"w-100" %><br/>
-    <%= f.submit "送信", class:"mb-3 btn btn-info" %>
-  <% end %>
+              elem.innerHTML = ""
+              let opt = {
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                scoreName: 'review[star]',
+              };
+              raty(elem, opt);
+            });
+          </script>
+          <%= f.text_area :content, rows: '5', placeholder: "内容を入力してください。", class:"w-100" %><br/>
+          <%= f.submit "送信", class:"my-3 btn btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 <h5>レビュー <%= line_plan.reviews.count %>件</h5>
 <% line_plan.reviews.reverse.each do |review| %>
