@@ -64,8 +64,12 @@ class Admin::LinePlansController < ApplicationController
   def destroy
     @line_plan = LinePlan.find(params[:id])
     @line_plan.destroy
-    flash.now[:notice] = "回線プランを削除しました。"
-    render :line_plan_action
+    @messege = "回線プランを削除しました。"
+    # リクエストの形式をjsでレンダリングする為にrespond_toを使用。
+    respond_to do |format|
+      # jsの:review_actionを指定。
+      format.js { render :line_plan_action }
+    end
   end
 
 private
