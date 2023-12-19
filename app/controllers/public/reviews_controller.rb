@@ -19,9 +19,8 @@ class Public::ReviewsController < ApplicationController
   end
 
   def destroy
-    Review.find(params[:id]).destroy
+    @review = Review.find(params[:id]).destroy
     @line_plan = LinePlan.find(params[:line_plan_id])
-    @review = Review.new
     # 非同期通信でメッセージをJS書き換える内容。
     @messege = "レビューを削除しました。"
     # リクエストの形式をjsでレンダリングする為にrespond_toを使用。

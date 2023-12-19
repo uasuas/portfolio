@@ -1,7 +1,7 @@
 <!--removeを下に移動してしまうとcreate後にremoveしてしまう為、一番上に設置。-->
 $('#review-card_<%= @review.id %>').remove();
-//$('#review-action').html('<%= j(render "public/line_plans/review", line_plan: @line_plan, review: @review) %>');
-//$('#review-average').html('<%= j(render "public/line_plans/review-average", line_plan: @line_plan) %>');
+$('#review-action').html('<%= j(render "public/line_plans/review", line_plan: @line_plan, review: @review) %>');
+$('#review-average').html('<%= j(render "public/line_plans/review-average", line_plan: @line_plan) %>');
 <!--コメントの入力formのidを指定して空にする。-->
 $('#review_content').val("")
 <!--フラッシュメッセージを表示。-->
