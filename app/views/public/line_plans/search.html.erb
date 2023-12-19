@@ -19,12 +19,8 @@
               <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
                 <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
                 <td><%= line_plan.name %></td>
-                <td>
-                  <!--line_planのもつareaをeach。-->
-                  <% line_plan.areas.each do |area| %>
-                    <%= area.area %>
-                  <% end %>
-                </td>
+                <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
+                <td><%= line_plan.areas.map(&:area).join(', ') %></td>
               </tr>
             <% end %>
           <% end %>
@@ -36,12 +32,8 @@
               <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
                 <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
                 <td><%= line_plan.name %></td>
-                <td>
-                  <!--line_planのもつcontentをeach。-->
-                  <% line_plan.contents.each do |content| %>
-                    <%= content.content %>
-                  <% end %>
-                </td>
+                <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
+                <td><%= line_plan.contents.map(&:content).join(', ') %></td>
               </tr>
             <% end %>
           <% end %>
