@@ -71,7 +71,7 @@
             <div class="col-12">
               <% if @customer.email != "guest@example.com" %>
                 <h3>過去のレビュー</h3>
-                <% current_customer.reviews.each do |review| %>
+                <% current_customer.reviews.reverse.each do |review| %>
                   <div class="review-card_<%= review.id %>" >
                     <%= render "public/customers/review-card", review: review %>
                   </div>

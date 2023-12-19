@@ -82,6 +82,7 @@ label {
 .card {
   position: relative;
   padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
   box-shadow: 0 0 10px #ccc;
   border: 1px solid rgba(112, 175, 255, 0.8);
   border-radius: 10px;

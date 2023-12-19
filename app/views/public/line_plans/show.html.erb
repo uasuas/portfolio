@@ -48,9 +48,11 @@
               <p><%= @line_plan.introduction %></p>
             </div>
           </div>
-          <div id="review-action">
-            <%= render "public/line_plans/review", line_plan: @line_plan, review: @review, customer: @customer %>
-          </div>
+          <% if current_customer.email != "guest@example.com" %>
+            <div id="review-action">
+              <%= render "public/line_plans/review", line_plan: @line_plan, review: @review %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
