@@ -64,6 +64,7 @@ class Admin::LinePlansController < ApplicationController
   def destroy
     @line_plan = LinePlan.find(params[:id])
     @line_plan.destroy
+    # 非同期通信でメッセージをJS書き換える内容。
     @messege = "回線プランを削除しました。"
     # リクエストの形式をjsでレンダリングする為にrespond_toを使用。
     respond_to do |format|

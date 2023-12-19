@@ -33,11 +33,13 @@ class Admin::CompaniesController < ApplicationController
 
   def destroy
     @company = Company.find(params[:id])
-    if @company.destroy
-      flash.now[:notice] = "回線企業の削除が完了しました。"
-      render :company_action
-    else
-      render :show
+    @company.destroy
+    # 非同期通信でメッセージをJS書き換える内容。
+    @messege = "回線企業の削除が完了しました。"
+    # リクエストの形式をjsでレンダリングする為にrespond_toを使用。
+    respond_to do |format|
+      # jsの:review_actionを指定。
+      format.js { render :company_action }
     end
   end
 
