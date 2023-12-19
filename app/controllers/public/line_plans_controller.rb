@@ -6,6 +6,7 @@ class Public::LinePlansController < ApplicationController
   def show
     @line_plan = LinePlan.find(params[:id])
     @review = Review.new
+    @customer = current_customer
   end
 
   def search

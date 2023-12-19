@@ -14,6 +14,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "script.js"
 import "sidebar.js"
+import "guestalert.js"
 import "jquery";
 import "popper.js";
 // import "bootstrap";

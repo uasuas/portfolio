@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # 管理者としてログインしていない場合アクセス制限をするが、その前にadmin_area?の戻り値を確認してtrueなら実行する。
   before_action :authenticate_admin!, if: :admin_area?
+  # 存在しないURLの入力だった場合、rootに戻しアラートを表示。
+  def redirect_to_root
+    redirect_to root_path, alert: '入力されたURLは存在しない為、URLをご確認ください。'
+  end
 
   private
 
@@ -37,7 +41,9 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :is_active])
   end
+
 end

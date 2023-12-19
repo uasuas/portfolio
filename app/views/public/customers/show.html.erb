@@ -10,66 +10,75 @@
               <p class="ml-5"><%= current_customer.name %></p>
               <h5 class="">メールアドレス</h5>
               <p class="ml-5"><%= current_customer.email %></p>
-              <h5 class="">レビュー件数</h5>
-              <p class="ml-5"><%= current_customer.reviews.count %>件</p>
+              <% if @customer.email != "guest@example.com" %>
+                <h5 class="">レビュー件数</h5>
+                <p class="ml-5"><%= current_customer.reviews.count %>件</p>
+              <% end %>
             </div>
             <div class="col-6 col-lg-11">
-              <!--モーダルボタン-->
-              <div class="button_new mb-3">
-                <button type="button" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.プロフィール編集') %></button>
-              </div>
-              <!--モーダル表示内容-->
-              <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content px-3">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                      </button>
+              <% if @customer.email != "guest@example.com" %>
+                <!--モーダルボタン-->
+                <div class="button_new mb-3">
+                  <button type="button" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.プロフィール編集') %></button>
+                </div>
+                <!--モーダル表示内容-->
+                <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content px-3">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                      <div class="set_center_outer">
+                        <h2 class="page_title_en mb-3">プロフィール編集</h2>
+                      </div>
+                      <%= form_with model: @customer, url: mypage_update_customers_path, method: :patch do |f| %>
+                        <div class="form-row align-items-center">
+                          <div class="col-3">
+                            <%= f.label :name, "お名前" %>
+                          </div>
+                          <div class="col-11 col-sm-9">
+                            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+                          </div>
+                        </div>
+                        <div class="form-row align-items-center">
+                          <div class="col-3">
+                            <%= f.label :email, "メールアドレス" %>
+                          </div>
+                          <div class="col-11 col-sm-9">
+                            <%= f.text_field :email, autocomplete: "emai", class: "form-control" %>
+                          </div>
+                        </div>
+                        <div class="actions mb-4">
+                          <%= f.submit '登録', class:"btn btn-info" %>
+                        </div>
+                      <% end %>
                     </div>
-                    <div class="set_center_outer">
-                      <h2 class="page_title_en mb-3">プロフィール編集</h2>
-                    </div>
-                    <%= form_with model: @customer, url: mypage_update_customers_path, method: :patch do |f| %>
-                      <div class="form-row align-items-center">
-                        <div class="col-3">
-                          <%= f.label :name, "お名前" %>
-                        </div>
-                        <div class="col-11 col-sm-9">
-                          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
-                        </div>
-                      </div>
-                      <div class="form-row align-items-center">
-                        <div class="col-3">
-                          <%= f.label :email, "メールアドレス" %>
-                        </div>
-                        <div class="col-11 col-sm-9">
-                          <%= f.text_field :email, autocomplete: "emai", class: "form-control" %>
-                        </div>
-                      </div>
-                      <div class="actions mb-4">
-                        <%= f.submit '登録', class:"btn btn-info" %>
-                      </div>
-                    <% end %>
                   </div>
                 </div>
-              </div>
-              <div class="mb-5">
-                <%= link_to confirm_customers_path, class: "btn btn-danger btn-sm btn-block" do %>
-                  退会する
-                <% end %>
-              </div>
+                <div class="mb-5">
+                  <%= link_to confirm_customers_path, class: "btn btn-danger btn-sm btn-block" do %>
+                    退会する
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
         <div class="col-12 col-lg-8">
           <div class="row">
             <div class="col-12">
-              <h3>過去のレビュー</h3>
-              <% current_customer.reviews.each do |review| %>
-                <div class="review-card_<%= review.id %>" >
-                  <%= render "public/customers/review-card", review: review %>
-                </div>
+              <% if @customer.email != "guest@example.com" %>
+                <h3>過去のレビュー</h3>
+                <% current_customer.reviews.each do |review| %>
+                  <div class="review-card_<%= review.id %>" >
+                    <%= render "public/customers/review-card", review: review %>
+                  </div>
+                <% end %>
+              <% else %>
+                <p>ゲストログインの為、</p>
+                <p>レビューは閲覧のみになります。</p>
               <% end %>
             </div>
           </div>

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   devise_for :admin, skip: %i[registrations passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+  devise_scope :customer do
+    post "customers/guest_sign_in", to: "public/sessions#guest_sign_in"
+  end
 
   root 'public/homes#top'
   get 'about', to: 'public/homes#about'
@@ -41,5 +44,7 @@ Rails.application.routes.draw do
     resources :inquiries, only: %i[show update destroy]
     resources :customers, except: :destroy
   end
+  # *unmatched_routeにて存在しないURLが入力された場合、application_controllerのredirect_to_rootアクションを呼び出す。
+  get '*unmatched_route', to: 'application#redirect_to_root'
 
 end
