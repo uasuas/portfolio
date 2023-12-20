@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_customer!, except: [:top, :about]
-  # deviseのコントローラーが実行されている場合にのみメソッドを呼び出す。
-  before_action :configure_permitted_parameters, if: :devise_controller?
   # 管理者としてログインしていない場合アクセス制限をするが、その前にadmin_area?の戻り値を確認してtrueなら実行する。
   before_action :authenticate_admin!, if: :admin_area?
+  before_action :authenticate_customer!, except: [:top, :about], unless: :admin_signed_in?
+  # deviseのコントローラーが実行されている場合にのみメソッドを呼び出す。
+  before_action :configure_permitted_parameters, if: :devise_controller?
   # 存在しないURLの入力だった場合、rootに戻しアラートを表示。
   def redirect_to_root
     redirect_to root_path, alert: '入力されたURLは存在しない為、URLをご確認ください。'

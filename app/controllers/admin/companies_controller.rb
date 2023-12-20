@@ -1,22 +1,17 @@
 class Admin::CompaniesController < ApplicationController
+  before_action :load_company, only: [:show, :edit, :update, :destroy]
+  before_action :build_company, only: [:new, :create]
+
   def new
-    @company = Company.new
   end
 
   def show
-    begin
-      @company = Company.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, alert: '指定された会社は存在しません。'
-    end
   end
 
   def edit
-    @company = Company.find(params[:id])
   end
 
   def create
-    @company = Company.new(company_params)
     if @company.save
       redirect_to admin_company_path(@company), notice: "回線企業の登録が完了しました。"
     else
@@ -26,7 +21,6 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:id])
     if @company.update(company_params)
       redirect_to admin_company_path(@company), notice: "回線企業情報の更新が完了しました。"
     else
@@ -36,7 +30,6 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def destroy
-    @company = Company.find(params[:id])
     @company.destroy
     # 非同期通信でメッセージをJS書き換える内容。
     @messege = "回線企業の削除が完了しました。"
@@ -48,6 +41,21 @@ class Admin::CompaniesController < ApplicationController
   end
 
   private
+
+  def load_company
+    @company = Company.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: '指定された会社は存在しません。'
+  end
+
+  def build_company
+    case params[:action].to_sym
+    when :new
+      @company = Company.new
+    when :edit
+      @company = Company.new(company_params)
+    end
+  end
 
   def company_params
     params.require(:company).permit(:name, :zip_code, :address, :telephone_number, :image)
