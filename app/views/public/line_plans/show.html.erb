@@ -9,47 +9,7 @@
           </div>
         </div>
         <div class="col-12 col-lg-8">
-          <div class="card">
-            <div class="card-body row">
-              <h3 class="col-12 marked-heading card-title">
-                <%= @line_plan.name %>
-              </h3>
-              <div class="col-5 offset-1 mb-3">
-                <h5 class="card-title">総合評価</h5>
-                <p id="review-average" class="card-text offset-1">
-                  <!--reviewの平均点を表示。-->
-                  <%= render "public/line_plans/review-average", line_plan: @line_plan %>
-                </p>
-              </div>
-              <div class="col-6 mb-3">
-                <h5 class="card-title">月額料金</h5>
-                <p class="card-text offset-1">
-                  <!--application_helper.rbでフォーマットしたものを呼び出している。-->
-                  <%= format_monthly_fee(@line_plan.monthly_fee) %>円
-                </p>
-              </div>
-              <div class="col-5 offset-1 mb-3">
-                <h5 class="card-title">対応地域</h5>
-                <p class="card-text offset-1">
-                  <!--mapでプランに紐ずくエリア情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
-                  <% areas = @line_plan.areas.map(&:area).join(', ') %>
-                  <%= areas %>
-                </p>
-              </div>
-              <div class="col-6 mb-3">
-                <h5 class="card-title">回線内容</h5>
-                <p class="card-text offset-1">
-                  <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
-                  <% contents = @line_plan.contents.map(&:content).join(', ') %>
-                  <%= contents %>
-                </p>
-              </div>
-              <div class="col-11 offset-1">
-                <h5 class="card-title">内容</h5>
-                <p class="card-text"><%= @line_plan.introduction %></p>
-              </div>
-            </div>
-          </div>
+          <%= render "layouts/line_plan-show-card", line_plan: @line_plan %>
           <div id="review-action">
             <%= render "public/line_plans/review", line_plan: @line_plan, review: @review %>
           </div>

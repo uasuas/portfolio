@@ -4,7 +4,7 @@
       <h2>回線プラン情報ページ</h2>
       <div class="row">
         <div class="side-content col-12 col-lg-4">
-          <div class="side-content-sticky row">
+          <div class="side-content-sticky row mb-3">
             <%= render "layouts/company-table", company: @line_plan.company %>
             <div class="col-11 offset-1">
               <%= link_to "企業情報編集", edit_admin_company_path(@line_plan.company) %>
@@ -14,38 +14,7 @@
           </div>
         </div>
         <div class="col-12 col-lg-8">
-          <div class="row">
-            <div class="col-12">
-              <h3><%= @line_plan.name %></h3>
-            </div>
-            <div class="col-5 offset-1">
-              <h5>対応エリア</h5>
-              <ul class="line_plan_items">
-                <% @line_plan.areas.each do |area| %>
-                  <li><%= area.area %></li>
-                <% end %>
-              </ul>
-            </div>
-            <div class="col-6">
-              <h5>回線内容</h5>
-              <ul class="line_plan_items">
-                <% @line_plan.contents.each do |content| %>
-                  <li><%= content.content %></li>
-                <% end %>
-              </ul>
-            </div>
-            <div class="col-11 col-lg-3 offset-1">
-              <h5>月額料金</h5>
-            </div>
-            <div class="col-11 col-lg-7 offset-1">
-              <!--application_helper.rbでフォーマットしたものを呼び出している。-->
-              <%= format_monthly_fee(@line_plan.monthly_fee) %>円
-            </div>
-            <div class="col-11 offset-1">
-              <h5>内容</h5>
-              <p><%= @line_plan.introduction %></p>
-            </div>
-          </div>
+          <%= render "layouts/line_plan-show-card", line_plan: @line_plan %>
         </div>
       </div>
     </div>

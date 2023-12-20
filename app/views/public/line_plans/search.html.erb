@@ -2,26 +2,16 @@
   <div class="row">
     <div class="col">
       <h3>ご希望のプランはこちら</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="col-2">開始日</th>
-            <th class="col-5">プラン名</th>
-            <th class="col-5"></th>
-          </tr>
-        </thead>
-        <tbody>
+      <% if @areas.present? || @contents.present? || @line_plans.present? %>
+        <div class="row row-cols-1 row-cols-lg-2">
           <!--areaで絞り込みを行なったものをeach。-->
           <% @areas.each do |area| %>
             <!--areaを持っているline_planをeach。-->
             <% area.line_plans.each do |line_plan| %>
               <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-              <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
-                <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
-                <td><%= line_plan.name %></td>
-                <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
-                <td><%= line_plan.areas.map(&:area).join(', ') %></td>
-              </tr>
+              <div class="col" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+                <%= render "layouts/line_plan-card", line_plan: line_plan %>
+              </div>
             <% end %>
           <% end %>
           <!--contentで絞り込みを行なったものをeach。-->
@@ -29,23 +19,21 @@
             <!--contentを持っているline_planをeach。-->
             <% content.line_plans.each do |line_plan| %>
               <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-              <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
-                <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
-                <td><%= line_plan.name %></td>
-                <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
-                <td><%= line_plan.contents.map(&:content).join(', ') %></td>
-              </tr>
+              <div class="col" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+                <%= render "layouts/line_plan-card", line_plan: line_plan %>
+              </div>
             <% end %>
           <% end %>
           <% @line_plans.each do |line_plan| %>
-            <tr onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
-              <td><%= line_plan.created_at.strftime("%Y/%m/%d") %></td>
-              <td><%= line_plan.name %></td>
-              <td><%= format_monthly_fee(line_plan.monthly_fee) %>円</td>
-            </tr>
+            <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
+            <div class="col" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+              <%= render "layouts/line_plan-card", line_plan: line_plan %>
+            </div>
           <% end %>
-        </tbody>
-      </table>
+        </div>
+      <% else %>
+        <p>現在、ご希望すべてを満たしたプランはございません。</p>
+      <% end %>
     </div>
   </div>
 </div>
