@@ -1,0 +1,27 @@
+<div class="card" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
+  <div class="card-body">
+    <h5 class="marked-heading card-title">
+      <%= line_plan.name %>
+    </h5>
+    <p class="card-text">
+      総合評価：<%= render "public/line_plans/review-average", line_plan: line_plan %>
+    </p>
+    <p class="card-text">
+      月額料金：<%= format_monthly_fee(line_plan.monthly_fee) %>円
+    </p>
+    <p class="card-text">
+      プラン内容：
+      <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
+      <% contents = line_plan.contents.map(&:content).join(', ') %>
+      <%= contents %>
+    </p>
+    <p class="card-text">
+      対応地域：
+      <!--mapでプランに紐ずくエリア情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
+      <% areas = line_plan.areas.map(&:area).join(', ') %>
+      <%= areas %>
+    </p>
+    <h5 class="card-title">プラン説明</h5>
+    <p class="card-text"><%= line_plan.introduction %></p>
+  </div>
+</div>

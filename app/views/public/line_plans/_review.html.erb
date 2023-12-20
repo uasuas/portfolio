@@ -1,4 +1,4 @@
-<% if customer_signed_in?  %>
+<% if admin_signed_in? || current_customer.email != "guest@example.com" %>
   <!--Raty設定用記述。-->
   <div class="form-group" id="star">
     <h5>このプランの評価はこちらから</h5>

@@ -17,36 +17,11 @@
               <h2>プラン一覧</h2>
             </div>
           </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="col-2">プラン名</th>
-                <th class="col-2">月額料金</th>
-                <th class="col-4">回線種類</th>
-                <th class="col-4">対応地域</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @company.line_plans.each do |plan| %>
-                <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-                <tr onclick="window.location='<%= admin_line_plan_path(plan) %>'" role="link" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
-                  <td><%= plan.name %></td>
-                  <!--application_helper.rbでフォーマットしたものを呼び出している。-->
-                  <td><%= format_monthly_fee(plan.monthly_fee) %>円</td>
-                  <td>
-                    <!--mapでプランに紐ずく回線種類情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
-                    <% contents = plan.contents.map(&:content).join(', ') %>
-                    <%= contents %>
-                  </td>
-                  <td>
-                    <!--mapでプランに紐ずくエリア情報を取得し配列を作成、その後「,」で区切りを付けたつの文字列に連結して表示する。-->
-                    <% areas = plan.areas.map(&:area).join(', ') %>
-                    <%= areas %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+          <% @company.line_plans.each do |line_plan| %>
+            <div onclick="window.location='<%= admin_line_plan_path(line_plan) %>'" role="link">
+              <%= render "layouts/line_plan-card", line_plan: line_plan %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

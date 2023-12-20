@@ -132,10 +132,6 @@ label {
   border-bottom: none;
 }
 
-.line_plan_items {
-  list-style: none;
-}
-
 .marked-heading {
   background: linear-gradient(rgba(195, 219, 255, 0.2) 0%, rgba(22, 135, 237, 0.6) 100%);
   text-align: center;

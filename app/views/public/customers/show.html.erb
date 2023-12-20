@@ -69,7 +69,7 @@
         <div class="col-12 col-lg-8">
           <div class="row">
             <div class="col-12">
-              <% if @customer.email != "guest@example.com" %>
+              <% if admin_signed_in? || @customer.email != "guest@example.com" %>
                 <h3>過去のレビュー</h3>
                 <% current_customer.reviews.reverse.each do |review| %>
                   <div id="review-card_<%= review.id %>" >
