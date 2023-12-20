@@ -35,8 +35,12 @@
   </div>
 <% end %>
 <h5>レビュー <%= line_plan.reviews.count %>件</h5>
-<% line_plan.reviews.reverse.each do |review| %>
-  <div id="review-card_<%= review.id %>">
-    <%= render "public/customers/review-card", review: review %>
-  </div>
+<% if line_plan.reviews.any? %>
+  <% line_plan.reviews.reverse.each do |review| %>
+    <div id="review-card_<%= review.id %>">
+      <%= render "public/customers/review-card", review: review %>
+    </div>
+  <% end %>
+<% else %>
+  <p>現在、こちらのプランにレビューはありません。</p>
 <% end %>

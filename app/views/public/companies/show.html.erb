@@ -14,10 +14,14 @@
               <h2>プラン一覧</h2>
             </div>
           </div>
-          <% @company.line_plans.each do |line_plan| %>
-            <div onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
-              <%= render "layouts/line_plan-card", line_plan: line_plan %>
-            </div>
+          <% if @company.line_plans.any? %>
+            <% @company.line_plans.each do |line_plan| %>
+              <div onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+                <%= render "layouts/line_plan-card", line_plan: line_plan %>
+              </div>
+            <% end %>
+          <% else %>
+            <p>現在、こちらの企業に登録されているプランはありません。</p>
           <% end %>
         </div>
       </div>
