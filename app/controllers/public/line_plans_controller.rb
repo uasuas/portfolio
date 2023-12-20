@@ -59,7 +59,6 @@ class Public::LinePlansController < ApplicationController
       common_line_plan_ids = []
     end
 
-
     min_search = params[:min_search]
     max_search = params[:max_search]
     if max_search.present? && min_search.present?
