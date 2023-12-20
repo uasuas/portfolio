@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_customer!, except: [:top, :about]
   # deviseのコントローラーが実行されている場合にのみメソッドを呼び出す。
   before_action :configure_permitted_parameters, if: :devise_controller?
   # 管理者としてログインしていない場合アクセス制限をするが、その前にadmin_area?の戻り値を確認してtrueなら実行する。
