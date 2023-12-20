@@ -37,25 +37,18 @@ class Admin::LinePlansController < ApplicationController
 
   def update
     # エリアとコンテンツがnilでないかを確認。
-    if params[:area_ids].nil? || params[:content_ids].nil?
+    if params[:line_plan][:area_ids][1].blank? || params[:line_plan][:content_ids][1].blank?
+    # if @line_plan.area_ids.empty? || @line_plan.content_ids.empty?
       flash.now[:alert] = "必要事項を入力してください。"
-      render :new
+      render :edit
       return
     end
     if @line_plan.update(line_plan_params)
-      # チェックボックスから送られて来たarea_ids名の配列内容をarea_idに入れ、中間テーブルに保存する。
-      params[:area_ids].each do |area_id|
-        @line_plan.area_lines.create(area_id: area_id)
-      end
-      # チェックボックスから送られて来たcontent_ids名の配列内容をcontent_idに入れ、中間テーブルに保存する。
-      params[:content_ids].each do |content_id|
-        @line_plan.content_lines.create(content_id: content_id)
-      end
-      flash.now[:notice] = "回線プランを登録しました。"
+      flash[:notice] = "回線プラン情報を更新しました。"
       redirect_to admin_line_plan_path(@line_plan)
     else
       flash.now[:alert] = "必要事項を入力してください。"
-      render :new
+      render :edit
     end
   end
 
@@ -70,7 +63,7 @@ class Admin::LinePlansController < ApplicationController
     end
   end
 
-private
+  private
 
   def load_resource
     @line_plan = LinePlan.find(params[:id])
@@ -88,6 +81,6 @@ private
   end
 
   def line_plan_params
-    params.require(:line_plan).permit(:name, :monthly_fee, :introduction, :company_id)
+    params.require(:line_plan).permit(:name, :monthly_fee, :introduction, :company_id, area_ids: [], content_ids: [])
   end
 end

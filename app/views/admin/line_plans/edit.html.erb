@@ -4,7 +4,80 @@
       <h2>回線プラン編集</h2>
     </div>
     <div class="col-12">
-      <%= render "admin/line_plans/form", line_plan: @line_plan %>
+      <!--<#%= render "admin/line_plans/form", line_plan: @line_plan %>-->
+      <div class="form-group d-flex justify-content-center align-items-center">
+        <%= form_with model: [:admin, @line_plan] do |f| %>
+          <div class="form-row align-items-center">
+            <div class="col-3">
+              <%= f.label :company_id, "企業名" %>
+            </div>
+            <div class="col-11 col-sm-9">
+              <%= f.collection_select :company_id, Company.all, :id, :name, include_blank: "選択して下さい" %>
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-3">
+              <%= f.label :name, "回線プラン名" %>
+            </div>
+            <div class="col-11 col-sm-9">
+              <%= f.text_field :name, autofocus: true, autocomplete: "プラン名", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-3">
+              <%= f.label :monthly_fee, "月額料金" %>
+            </div>
+            <div class="col-11 col-sm-9">
+              <%= f.text_field :monthly_fee, autocomplete: "月額料金", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-3">
+              <%= f.label :introduction, "プラン内容" %>
+            </div>
+            <div class="col-11 col-sm-9">
+              <%= f.text_area :introduction, autocomplete: "内容入力", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-3">
+              <%= f.label :area, "エリア" %>
+            </div>
+            <div class="col-11 col-sm-9">
+              <div class="row">
+                <%= f.collection_check_boxes(:area_ids, Area.all, :id, :area, { checked: @line_plan.area_ids.map(&:to_param) }) do |area| %>
+                  <div class="col-6">
+                    <%= area.label do %>
+                      <%= area.check_box %>
+                      <%= area.text %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-3">
+              <%= f.label :content, "回線" %>
+            </div>
+            <div class="col-11 col-sm-9">
+              <div class="row">
+                <%= f.collection_check_boxes(:content_ids, Content.all, :id, :content, { checked: @line_plan.content_ids.map(&:to_param) }) do |content| %>
+                  <div class="col-12">
+                    <%= content.label do %>
+                      <%= content.check_box %>
+                      <%= content.text %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit '登録', class: "btn btn-info" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

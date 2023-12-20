@@ -35,6 +35,15 @@
               </div>
             <% end %>
           </div>
+          <div class="row align-items-center mb-3">
+            <div class="col-11 offset-1 mb-2">
+                <h4>月額料金</h4>
+              </div>
+            <div class="col-11 offset-1 mb-2">
+              <%= number_field_tag :min_search, "", placeholder: "最小価格" %>
+              <%= number_field_tag :max_search, "", placeholder: "最大価格" %>
+            </div>
+          </div>
           <div class="mb-4">
             <%= submit_tag '検索', class:"btn btn-info" %>
           </div>

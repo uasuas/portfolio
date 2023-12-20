@@ -17,7 +17,8 @@ class Public::LinePlansController < ApplicationController
     @word = params[:content]
     @areas = Area.where("area LIKE ?", "%#{@word}%")
     @contents = Content.where("content LIKE ?", "%#{@word}%")
-    @line_plans = []
+    @line_plans = LinePlan.all
+
 
     if params[:area_ids].present?
       # search結果に複数のパターンがあるため、モーダルのフォームにて絞り込みをした際に他の結果を空にする処理。
@@ -58,8 +59,18 @@ class Public::LinePlansController < ApplicationController
       common_line_plan_ids = []
     end
 
-    @line_plans = LinePlan.where(id: common_line_plan_ids)
 
+    min_search = params[:min_search]
+    max_search = params[:max_search]
+    if max_search.present? && min_search.present?
+      @line_plans = @line_plans.where("monthly_fee >= #{min_search} and monthly_fee <= #{max_search}")
+    elsif max_search.present?
+      @line_plans = @line_plans.where("monthly_fee <= #{max_search}")
+    elsif min_search.present?
+      @line_plans = @line_plans.where("monthly_fee >= #{min_search}")
+    else
+      @line_plans = LinePlan.where(id: common_line_plan_ids)
+    end
     render "public/line_plans/search"
   end
 
