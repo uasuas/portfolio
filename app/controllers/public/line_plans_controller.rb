@@ -4,9 +4,13 @@ class Public::LinePlansController < ApplicationController
   end
 
   def show
-    @line_plan = LinePlan.find(params[:id])
-    @review = Review.new
-    @customer = current_customer
+    begin
+      @line_plan = LinePlan.find(params[:id])
+      @review = Review.new
+      @customer = current_customer
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, alert: '指定されたラインプランは存在しません。'
+    end
   end
 
   def search

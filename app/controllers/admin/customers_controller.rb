@@ -1,14 +1,13 @@
 class Admin::CustomersController < ApplicationController
+  before_action :load_resource, only: [:show, :edit, :update]
+
   def show
-    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       redirect_to admin_customer_path(@customer), notice: '会員情報を更新しました。'
     else
@@ -18,6 +17,12 @@ class Admin::CustomersController < ApplicationController
   end
 
   private
+
+  def load_resource
+    @customer = Customer.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: '指定された会社は存在しません。'
+  end
 
   def customer_params
     params.require(:customer).permit(:name, :email, :is_active)

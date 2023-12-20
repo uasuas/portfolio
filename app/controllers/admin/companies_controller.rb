@@ -1,6 +1,6 @@
 class Admin::CompaniesController < ApplicationController
-  before_action :load_company, only: [:show, :edit, :update, :destroy]
-  before_action :build_company, only: [:new, :create]
+  before_action :load_resource, only: [:show, :edit, :update, :destroy]
+  before_action :build_resource, only: [:new, :create]
 
   def new
   end
@@ -42,17 +42,17 @@ class Admin::CompaniesController < ApplicationController
 
   private
 
-  def load_company
+  def load_resource
     @company = Company.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path, alert: '指定された会社は存在しません。'
   end
 
-  def build_company
+  def build_resource
     case params[:action].to_sym
     when :new
       @company = Company.new
-    when :edit
+    when :create
       @company = Company.new(company_params)
     end
   end

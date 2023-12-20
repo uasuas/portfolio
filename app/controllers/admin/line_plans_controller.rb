@@ -1,18 +1,17 @@
 class Admin::LinePlansController < ApplicationController
+  before_action :load_resource, only: [:show, :edit, :update, :destroy]
+  before_action :build_resource, only: [:new, :create]
+
   def new
-    @line_plan = LinePlan.new
   end
 
   def show
-    @line_plan = LinePlan.find(params[:id])
   end
 
   def edit
-    @line_plan = LinePlan.find(params[:id])
   end
 
   def create
-    @line_plan = LinePlan.new(line_plan_params)
     # エリアとコンテンツがnilでないかを確認。
     if params[:area_ids].nil? || params[:content_ids].nil?
       flash.now[:alert] = "必要事項を入力してください。"
@@ -37,7 +36,6 @@ class Admin::LinePlansController < ApplicationController
   end
 
   def update
-    @line_plan = LinePlan.find(params[:id])
     # エリアとコンテンツがnilでないかを確認。
     if params[:area_ids].nil? || params[:content_ids].nil?
       flash.now[:alert] = "必要事項を入力してください。"
@@ -62,7 +60,6 @@ class Admin::LinePlansController < ApplicationController
   end
 
   def destroy
-    @line_plan = LinePlan.find(params[:id])
     @line_plan.destroy
     # 非同期通信でメッセージをJS書き換える内容。
     @messege = "回線プランを削除しました。"
@@ -74,6 +71,21 @@ class Admin::LinePlansController < ApplicationController
   end
 
 private
+
+  def load_resource
+    @line_plan = LinePlan.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: '指定された回線プランは存在しません。'
+  end
+
+  def build_resource
+    case params[:action].to_sym
+    when :new
+      @line_plan = LinePlan.new
+    when :create
+      @line_plan = LinePlan.new(line_plan_params)
+    end
+  end
 
   def line_plan_params
     params.require(:line_plan).permit(:name, :monthly_fee, :introduction, :company_id)

@@ -1,14 +1,14 @@
 class Admin::InquiriesController < ApplicationController
+  before_action :load_resource, only: [:show, :update]
+  before_action :list_resource, only: [:index]
+
   def index
-    @inquiries = Inquiry.all
   end
 
   def show
-    @inquiry = Inquiry.find(params[:id])
   end
 
   def update
-    @inquiry = Inquiry.find(params[:id])
     # 未確認だった場合確認済みにする。
     if @inquiry.status == false
       @inquiry.status = true
@@ -20,6 +20,16 @@ class Admin::InquiriesController < ApplicationController
   end
 
   private
+
+  def load_resource
+    @inquiry = Inquiry.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: '指定された問い合わせは存在しません。'
+  end
+
+  def list_resource
+    @inquiries = Inquiry.all
+  end
 
   def inquiry_params
     params.require(:inquiry).permit(:status)
