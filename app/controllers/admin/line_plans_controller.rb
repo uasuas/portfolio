@@ -37,6 +37,7 @@ class Admin::LinePlansController < ApplicationController
 
   def update
     # エリアとコンテンツがnilでないかを確認。
+    # 配列で空の場合、[""]が送られてきている為[0]ではなく[1]を.blank?で確認。
     if params[:line_plan][:area_ids][1].blank? || params[:line_plan][:content_ids][1].blank?
     # if @line_plan.area_ids.empty? || @line_plan.content_ids.empty?
       flash.now[:alert] = "必要事項を入力してください。"

@@ -115,6 +115,10 @@ label {
   top: 5%;
 }
 
+.guest-login {
+  
+}
+
 /*formの設定。*/
 .image_tag {
   display: flex;

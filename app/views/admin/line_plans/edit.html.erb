@@ -44,12 +44,10 @@
             </div>
             <div class="col-11 col-sm-9">
               <div class="row">
-                <%= f.collection_check_boxes(:area_ids, Area.all, :id, :area, { checked: @line_plan.area_ids.map(&:to_param) }) do |area| %>
+                <!--collection_check_boxesメソッドによって生成されたチェックボックスのarea_idsという値で送る。-->
+                <%= f.collection_check_boxes(:area_ids, Area.all, :id, :area) do |area| %>
                   <div class="col-6">
-                    <%= area.label do %>
-                      <%= area.check_box %>
-                      <%= area.text %>
-                    <% end %>
+                    <%= area.label { area.check_box + area.text } %>
                   </div>
                 <% end %>
               </div>
@@ -61,12 +59,10 @@
             </div>
             <div class="col-11 col-sm-9">
               <div class="row">
-                <%= f.collection_check_boxes(:content_ids, Content.all, :id, :content, { checked: @line_plan.content_ids.map(&:to_param) }) do |content| %>
+                <!--collection_check_boxesメソッドによって生成されたチェックボックスのcontent_idsという値で送る。-->
+                <%= f.collection_check_boxes(:content_ids, Content.all, :id, :content) do |content| %>
                   <div class="col-12">
-                    <%= content.label do %>
-                      <%= content.check_box %>
-                      <%= content.text %>
-                    <% end %>
+                    <%= content.label { content.check_box + content.text } %>
                   </div>
                 <% end %>
               </div>

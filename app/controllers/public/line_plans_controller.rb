@@ -59,14 +59,19 @@ class Public::LinePlansController < ApplicationController
       common_line_plan_ids = []
     end
 
+    # 上記の確認後、料金の絞り込みに入り、受け取ったminまたはmaxの情報の有無によって処理を行う。
     min_search = params[:min_search]
     max_search = params[:max_search]
+    # 両方ある場合。
     if max_search.present? && min_search.present?
       @line_plans = @line_plans.where("monthly_fee >= #{min_search} and monthly_fee <= #{max_search}")
+    # maxのみの場合。
     elsif max_search.present?
       @line_plans = @line_plans.where("monthly_fee <= #{max_search}")
+    # minのみの場合。
     elsif min_search.present?
       @line_plans = @line_plans.where("monthly_fee >= #{min_search}")
+      # どれにも該当しない場合。
     else
       @line_plans = LinePlan.where(id: common_line_plan_ids)
     end
