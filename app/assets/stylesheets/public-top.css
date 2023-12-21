@@ -28,7 +28,7 @@
 @keyframes shrinkAnimation {
   0% {
     /* 開始時のフォントサイズ */
-    font-size: 50px;
+    font-size: 30px;
   }
   100% {
     /* 終了時のフォントサイズ */
@@ -49,7 +49,7 @@
 .guest-login {
   position: sticky;
   left: 70%;
-  top: 55%;
+  top: 90%;
   width: 140px;
   margin-bottom: 10px;
   color: rgba(13, 110, 253, 1);
@@ -60,6 +60,7 @@
 
 .guest-login:hover {
   background: white;
+  color: rgba(13, 110, 253, 1);
 }
 
 .top-content {

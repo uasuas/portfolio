@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title marked-heading">About</h4>
+          <p class="card-text">
+            当サイトは、通信サービスの契約における混乱を解消し、ユーザーが適切な情報を手に入れ、
+            自信を持って最適な選択をするお手伝いをすることを目指しています。<br>
+            お客様のライフスタイルやニーズに適した通信プランの絞り込みを行い、
+            詳細な情報とユーザーの体験談を提供し、あなたが理想とする通信サービスを見つけるお手伝いをします。
+          </p>
+        </div>
+        <div class="row">
+          <div class="about-image col-11 col-md-6 mb-3">
+            <% unless admin_signed_in? || customer_signed_in? %>
+              <%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "about-guest-login btn btn-sm btn-block mb-3 sign_in", method: :post %>
+            <% end %>
+          </div>
+          <div class="col-11 col-md-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title marked-heading">ご利用方法</h4>
+                <p class="card-text">
+                  ・プランを探すボタン<br>
+                  検索フォームを表示する、「プランを探す」をクリックすることで、
+                  条件を選択し、検索を行うことができます。
+                </p>
+                <p class="card-text">
+                  ・サイドバー<br>
+                  サイドバーに地域と通信種別のタブからプランを絞り込むことができます。
+                </p>
+                <p class="card-text">
+                  ・回線会社一覧<br>
+                  信頼のおける回線会社からプランを選びたい方向けに、回線会社のリストを提供します。
+                </p>
+                <p class="card-text">
+                  ・回線プラン一覧<br>
+                  様々なプランから選びたい方向けに、幅広いプランのリストを提供します。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
