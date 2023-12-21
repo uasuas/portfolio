@@ -1,13 +1,64 @@
-<div class="container-fluid top-image">
-  <div class="row">
+<div class="container-fluid">
+  <div class="row top-image">
     <div class="col">
-      <h2 class="top-title">Top</h2>
-      <div class="row">
-        
-        <div class="guest-login">
-          <%= link_to "ゲストログイン（閲覧用）", customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+      <h3 class="top-title">「あなたのライフスタイルに合ったサービスを見つけよう」</h3>
+      <% unless admin_signed_in? || customer_signed_in? %>
+        <%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "guest-login btn btn-sm btn-block mb-3 sign_in", method: :post %>
+      <% end %>
+    </div>
+  </div>
+  <div class="top-content row d-flex justify-content-center">
+    <div class="col-11 col-md-5 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title marked-heading">当サイトについて</h4>
+          <p class="card-text">
+            テレビ、電話、そしてインターネットを契約する際、
+            最適なプランを見つけるのは容易ではありません。<br>
+            当サイトでは、あなたのニーズに合った通信サービスを比較し、
+            サービスのユーザーの体験談を提供いたします。<br>
+            最新のプラン、料金、特徴を網羅し、
+            あなたのライフスタイルにマッチした最適な選択肢を見つけるお手伝いをします。
+          </p>
         </div>
       </div>
     </div>
+    <div class="col-11 col-md-5 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title marked-heading">特徴や提供する情報</h4>
+          <p class="card-text">・テレビ、電話、インターネットサービスのプラン比較</p>
+          <p class="card-text">・料金や特典の詳細情報</p>
+          <p class="card-text">・ユーザーのレビューや評価</p>
+          <p class="card-text">・プランに含まれる機能やオプションの説明</p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--<div class="col-11 col-md-5 mb-3">-->
+    <!--  <div class="card h-100">-->
+    <!--    <div class="card-body">-->
+    <!--      <h4 class="card-title marked-heading">About</h4>-->
+    <!--      <p class="card-text">-->
+    <!--        当サイトは、通信サービスの契約における混乱を解消し、ユーザーが適切な情報を手に入れ、-->
+    <!--        自信を持って最適な選択をするお手伝いをすることを目指しています。<br>-->
+    <!--        お客様のライフスタイルやニーズに適した通信プランの絞り込みを行い、-->
+    <!--        詳細な情報とユーザーの体験談を提供し、あなたが理想とする通信サービスを見つけるお手伝いをします。-->
+    <!--      </p>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--<div class="col-11 col-md-5 mb-3">-->
+    <!--  <div class="card h-100">-->
+    <!--    <div class="card-body">-->
+    <!--      <h4 class="card-title marked-heading">ご利用方法</h4>-->
+    <!--      <p class="card-text">・テレビ、電話、インターネットサービスのプラン比較</p>-->
+    <!--      <p class="card-text">・料金や特典の詳細情報</p>-->
+    <!--      <p class="card-text">・ユーザーのレビューや評価</p>-->
+    <!--      <p class="card-text">・プランに含まれる機能やオプションの説明</p>-->
+    <!--      </p>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
   </div>
 </div>

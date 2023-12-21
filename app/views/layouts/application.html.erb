@@ -22,10 +22,10 @@
       </div>
       <%= yield %>
       <%= render "layouts/public-inquiry" %>
-      <% if customer_signed_in?  %>
+      <% if admin_signed_in? || customer_signed_in? %>
         <div class="button_search">
           <div class="button_new">
-            <button type="button" class="btn" data-toggle="modal" data-target="#searchModal" data-whatever="@customer">
+            <button type="button" class="btn" data-toggle="modal" data-target="#searchModal" data-whatever="@search">
               <i class="fa-solid fa-magnifying-glass"></i>
               <%= t('views.button.プランを探す') %>
             </button>
