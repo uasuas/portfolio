@@ -6,37 +6,7 @@
         <% @companies.each do |company| %>
           <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
           <div class="col" onclick="window.location='<%= company_path(company) %>'" role="link">
-            <div class="card d-flex justity-content-center" style="cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0';" onmouseout="this.style.backgroundColor='';">
-              <div class="card-body row">
-                <div class="col-12">
-                  <div class="card-img mb-3" style="overflow: hidden; width: 100%; height: 200px;">
-                    <%= image_tag company.get_company_image(200,200), style: "width: 100%; height: 100%; object-fit: cover; object-position: center;" %>
-                  </div>
-                  <h5 class="marked-heading card-title">
-                    <%= company.name %>
-                  </h5>
-                  <div class="col-11 offset-1">
-                    <h5 class="card-title">郵便番号</h5>
-                    <p class="card-text ml-3">
-                      <!--application_helper.rbでフォーマットしたものを呼び出している。-->
-                      〒<%= format_zip_code(company.zip_code) %>
-                    </p>
-                    <h5 class="card-title">住所</h5>
-                    <p class="card-text ml-3">
-                      <%= company.address %>
-                    </p>
-                    <h5 class="card-title">電話番号</h5>
-                    <p class="card-text ml-3">
-                      <%= format_telephone_number(company.telephone_number) %>
-                    </p>
-                    <h5 class="card-title">回線プラン</h5>
-                    <p class="card-text ml-3">
-                      提供プラン数 <%= company.line_plans.count %> 件
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <%= render "public/companies/company-card", company: company %>
           </div>
         <% end %>
       </div>

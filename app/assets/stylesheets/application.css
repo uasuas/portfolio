@@ -15,6 +15,7 @@
  */
  @import "sidebar";
  @import "public-top";
+ @import 'swiper/swiper-bundle';
 
 * {
   margin: 0;

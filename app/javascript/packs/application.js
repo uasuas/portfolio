@@ -17,6 +17,9 @@ import "sidebar.js"
 import "guestalert.js"
 import "jquery";
 import "popper.js";
+import "swiper.js"
+import Swiper from 'swiper/swiper-bundle.js';
+import 'swiper/swiper-bundle.css';
 // import "bootstrap";
 import "../stylesheets/application";
 
