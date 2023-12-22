@@ -138,16 +138,6 @@ module ApplicationHelper
         text: "Aboutページ"
       },
       {
-        icon: "fa-solid fa-building",
-        path: companies_path,
-        text: "回線会社一覧"
-      },
-      {
-        icon: "fa-solid fa-book-open",
-        path: line_plans_path,
-        text: "回線プラン一覧"
-      },
-      {
         icon: "fa-solid fa-user-plus",
         path: new_customer_registration_path,
         text: "新規登録"
