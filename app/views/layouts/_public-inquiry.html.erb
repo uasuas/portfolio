@@ -12,7 +12,7 @@
       </div>
       <%= form_with model: Inquiry.new, url: inquiries_path, method: :post do |f| %>
         <div class="form-row align-items-center">
-          <div class="col-4">
+          <div class="col-11 col-sm-4">
             <%= f.label :name, "お名前" %>
           </div>
           <div class="col-11 col-sm-8">
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="form-row align-items-center">
-          <div class="col-4">
+          <div class="col-11 col-sm-4">
             <%= f.label :email, "メールアドレス" %>
           </div>
           <div class="col-11 col-sm-8">
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="form-row align-items-center">
-          <div class="col-4">
+          <div class="col-11 col-sm-4">
             <%= f.label :content, "お問い合わせ内容" %>
           </div>
           <div class="col-11 col-sm-8">

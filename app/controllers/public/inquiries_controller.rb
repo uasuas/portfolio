@@ -4,7 +4,7 @@ class Public::InquiriesController < ApplicationController
     if @inquiry.save
       redirect_to request.referer, notice: "お問い合わせの送信が完了しました。"
     else
-      flash[:alert] = "必要事項を入力してください。"
+      flash[:alert] = "必要事項をご確認してください。"
       redirect_to request.referer
     end
   end

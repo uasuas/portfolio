@@ -10,16 +10,21 @@
   background-image: url(line.png);
 }
 
+.site-theme {
+  color: rgba(255, 255, 255, 1);
+  margin-left: 50px;
+}
+
 .top-title {
   position: sticky;
   left: 40%;
   top: 40%;
-  width: 43%;
+  width: 50%;
   margin-bottom: 60px;
   transform: skew(-5deg, -13deg);
   white-space: nowrap;
   overflow: hidden;
-  color: rgba(13, 110, 253, 1);
+  color: rgba(255, 255, 255, 1);
   font-size: 36px;
   animation: shrinkAnimation 3s linear forwards;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
@@ -32,7 +37,7 @@
   }
   100% {
     /* 終了時のフォントサイズ */
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @keyframes slideAnimation {
@@ -116,16 +121,40 @@
 }
 
 /*レスポンス時。*/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .top-title {
     position: sticky;
-    left: 40%;
+    left: 25%;
     top: 40%;
-    width: 80%;
+    width: 60%;
+  }
+
+  @keyframes shrinkAnimation {
+    0% {
+      /* 開始時のフォントサイズ */
+      font-size: 50px;
+    }
+    100% {
+      /* 終了時のフォントサイズ */
+      font-size: 20px;
+    }
   }
 }
 
+@media screen and (max-width: 900px) {
+  .top-title {
+    position: sticky;
+    left: 20%;
+    top: 40%;
+    width: 75%;
+  }
+}
 @media screen and (max-width: 700px) {
+  .site-theme {
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .top-title {
     position: sticky;
     left: 40%;

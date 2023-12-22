@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <div class="row top-image">
     <div class="col">
-      <h3 class="top-title">「あなたのライフスタイルに合ったサービスを見つけよう」</h3>
+      <h2 class="site-theme">アイデル・コネクト</h2>
+      <h3 class="top-title">あなたのライフスタイルに合ったサービスを見つけよう!</h3>
       <% unless admin_signed_in? || customer_signed_in? %>
         <%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "guest-login btn btn-sm btn-block mb-3 sign_in", method: :post %>
       <% end %>

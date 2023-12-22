@@ -166,6 +166,8 @@ label {
   }
 
   .button_search {
-    top: 63px;
+    position: fixed;
+    right: 5%;
+    top: 90%;
   }
 }

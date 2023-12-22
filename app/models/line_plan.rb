@@ -7,6 +7,6 @@ class LinePlan < ApplicationRecord
   has_many :contents, through: :content_lines
 
   validates :name, presence: true
-  validates :monthly_fee, presence: true
+  validates :monthly_fee, presence: true, numericality: {only_integer: true}
   validates :introduction, presence: true
 end

@@ -13,7 +13,7 @@
         <%= f.label :name, "回線プラン名" %>
       </div>
       <div class="col-11 col-sm-9">
-        <%= f.text_field :name, autofocus: true, autocomplete: "プラン名", class: "form-control" %>
+        <%= f.text_field :name, autofocus: true, placeholder: "プラン名", class: "form-control" %>
       </div>
     </div>
     <div class="form-row align-items-center">
@@ -21,7 +21,7 @@
         <%= f.label :monthly_fee, "月額料金" %>
       </div>
       <div class="col-11 col-sm-9">
-        <%= f.text_field :monthly_fee, autocomplete: "月額料金", class: "form-control" %>
+        <%= f.text_field :monthly_fee, placeholder: "半角入力", class: "form-control" %>
       </div>
     </div>
     <div class="form-row align-items-center">
@@ -29,7 +29,7 @@
         <%= f.label :introduction, "プラン内容" %>
       </div>
       <div class="col-11 col-sm-9">
-        <%= f.text_area :introduction, autocomplete: "内容入力", class: "form-control" %>
+        <%= f.text_area :introduction, placeholder: "内容入力", class: "form-control" %>
       </div>
     </div>
     <div class="form-row align-items-center">

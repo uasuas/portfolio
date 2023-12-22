@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     # 管理者のログアウト時。
     if resource.is_a?(Admin)
-      root_path
+      new_admin_session_path
     # ユーザーのログアウト時。
     elsif resource.is_a?(Customer)
       root_path
