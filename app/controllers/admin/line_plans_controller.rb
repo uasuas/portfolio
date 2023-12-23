@@ -12,13 +12,9 @@ class Admin::LinePlansController < ApplicationController
   end
 
   def create
-    # エリアとコンテンツがnilでないかを確認。
-    if params[:area_ids].nil? || params[:content_ids].nil?
-      flash.now[:alert] = "必要事項を入力してください。"
-      render :new
-      return
-    end
-    if @line_plan.save
+    # valid?でエリアとコンテンツがpresent?で中身を確認。
+    if @line_plan.valid? && params[:area_ids].present? && params[:content_ids].present?
+      @line_plan.save
       # チェックボックスから送られて来たarea_ids名の配列内容をarea_idに入れ、中間テーブルに保存する。
       params[:area_ids].each do |area_id|
         @line_plan.area_lines.create(area_id: area_id)

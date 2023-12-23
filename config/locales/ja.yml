@@ -1,72 +1,95 @@
 ja:
-  enums:
-    activerecord:
-      errors:
-        messages:
-          record_invalid: 'バリデーションに失敗しました: %{errors}'
-          restrict_dependent_destroy:
-            has_one: "%{record}が存在しているので削除できません"
-            has_many: "%{record}が存在しているので削除できません"
+  activerecord:
     models:
       company: 企業
-      admin: 管理者
-      line_plan: 回線プラン
-      customer: 会員
-      genre: ジャンル
-      content: コンテンツ
-      review: レビュー
-      Inquiries: お問い合わせ
-      area: エリア
+      line_p1an: 回線プラン
     attributes:
       company:
         name: 企業名
         zip_code: 郵便番号
         address: 住所
         telephone_number: 電話番号
-      admin:
-        email: メールアドレス
-      line_p1an:
-        name: プラン名
-        monthly_fee: 個数
-        introduction: プラン説明
-      customer:
-        name: 名前
-        email: メールアドレス
-        password: パスワード
-        password_confirmation: 確認用パスワード
-        is_active: 会員ステータス
-      content:
-        content: 回線
-        tv: テレビ
-        internet: インターネット
-        phone: 電話
-      review:
-        content: 内容
-        star: 評価
-      inquiry:
-        name: 名前
-        email: メールアドレス
-        content: お問い合わせ内容
-        status: ステータス
-      area:
-        kanto_prefectures:
-          tokyo: "東京都"
-          kanagawa: "神奈川県"
-          saitama: "埼玉県"
-          chiba: "千葉県"
-          ibaraki: "茨城県"
-          tochigi: "栃木県"
-          gunma: "群馬県"
-        models:
-          company:
-            attributes:
-              zip_code:
-                blank: "入力してください"
-                wrong_length: "正しい長さではありません"
-                not_a_number: "数値ではありません"
-              address:
-                blank: "入力してください"
-              telephone_number:
-                blank: "入力してください"
-                too_short: "短すぎます"
-                not_a_number: "数値ではありません"
+    errors:
+      messages:
+        blank: を入力してください。
+      models:
+        company: 企業
+        admin: 管理者
+        line_plan: 回線プラン
+        customer: 会員
+        genre: ジャンル
+        content: コンテンツ
+        review: レビュー
+        Inquiries: お問い合わせ
+        area: エリア
+        company:
+          attributes:
+            zip_code:
+              wrong_length: "郵便番号の桁数が正しくありません"
+              not_a_number: "郵便番号は数字で入力してください"
+            telephone_number:
+              too_short: "電話番号が短すぎます"
+              not_a_number: "電話番号は数字で入力してください"
+#       models:
+#         company: 企業
+#         admin: 管理者
+#         line_plan: 回線プラン
+#         customer: 会員
+#         genre: ジャンル
+#         content: コンテンツ
+#         review: レビュー
+#         Inquiries: お問い合わせ
+#         area: エリア
+#       attributes:
+#         company:
+#           name: 企業名
+#           zip_code: 郵便番号
+#           address: 住所
+#           telephone_number: 電話番号
+#         admin:
+#           email: メールアドレス
+#         line_p1an:
+#           name: プラン名
+#           monthly_fee: 個数
+#           introduction: プラン説明
+#         customer:
+#           name: 名前
+#           email: メールアドレス
+#           password: パスワード
+#           password_confirmation: 確認用パスワード
+#           is_active: 会員ステータス
+#         content:
+#           content: 回線
+#           tv: テレビ
+#           internet: インターネット
+#           phone: 電話
+#         review:
+#           content: 内容
+#           star: 評価
+#         inquiry:
+#           name: 名前
+#           email: メールアドレス
+#           content: お問い合わせ内容
+#           status: ステータス
+#         area:
+#           kanto_prefectures:
+#             tokyo: "東京都"
+#             kanagawa: "神奈川県"
+#             saitama: "埼玉県"
+#             chiba: "千葉県"
+#             ibaraki: "茨城県"
+#             tochigi: "栃木県"
+#             gunma: "群馬県"
+#           models:
+#             company:
+#               attributes:
+#                 zip_code:
+#                   blank: "入力してください"
+#                   wrong_length: "正しい長さではありません"
+#                   not_a_number: "数値ではありません"
+#                 address:
+#                   blank: "入力してください"
+#                 telephone_number:
+#                   blank: "入力してください"
+#                   too_short: "短すぎます"
+#                   not_a_number: "数値ではありません"
