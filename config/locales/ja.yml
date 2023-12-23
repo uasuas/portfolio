@@ -1,12 +1,12 @@
 ja:
   enums:
     activerecord:
-    errors:
-      messages:
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
+      errors:
+        messages:
+          record_invalid: 'バリデーションに失敗しました: %{errors}'
+          restrict_dependent_destroy:
+            has_one: "%{record}が存在しているので削除できません"
+            has_many: "%{record}が存在しているので削除できません"
     models:
       company: 企業
       admin: 管理者
@@ -35,8 +35,6 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         is_active: 会員ステータス
-      genre:
-        name: ジャンル名
       content:
         content: 回線
         tv: テレビ
@@ -59,3 +57,16 @@ ja:
           ibaraki: "茨城県"
           tochigi: "栃木県"
           gunma: "群馬県"
+        models:
+          company:
+            attributes:
+              zip_code:
+                blank: "入力してください"
+                wrong_length: "正しい長さではありません"
+                not_a_number: "数値ではありません"
+              address:
+                blank: "入力してください"
+              telephone_number:
+                blank: "入力してください"
+                too_short: "短すぎます"
+                not_a_number: "数値ではありません"

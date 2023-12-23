@@ -3,8 +3,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /*background-image: image-url("line.png");*/
-  background-image: url(line.png);
+  background-image: image-url("line.png");
+  /*background-image: url(line.png);*/
 }
 
 .about-guest-login {
