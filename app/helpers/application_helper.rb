@@ -21,9 +21,9 @@ module ApplicationHelper
     end
   end
   # 電話番号の表示を変更し呼び出せるようにする。
-  # 電話番号の文字列内の数字を3桁、4桁、4桁の3つのグループに分け間に"-"を設置。
+  # 電話番号の文字列内の数字を4桁、3桁、3桁の3つのグループに分け間に"-"を設置。
   def format_telephone_number(telephone_number)
-    telephone_number.gsub(/(\d{3})(\d{4})(\d{4})/, '\1-\2-\3')
+    telephone_number.gsub(/(\d{4})(\d{3})(\d{3})/, '\1-\2-\3')
   end
   # 郵便番号の表示を変更し呼び出せるようにする。
   # 郵便番号が存在しかつ、7文字かをチェック。

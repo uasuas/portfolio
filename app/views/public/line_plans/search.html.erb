@@ -9,7 +9,7 @@
             <!--areaを持っているline_planをeach。-->
             <% area.line_plans.each do |line_plan| %>
               <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-              <div class="col" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+              <div class="col mb-3" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
                 <%= render "layouts/line_plan-card", line_plan: line_plan %>
               </div>
             <% end %>
@@ -19,14 +19,14 @@
             <!--contentを持っているline_planをeach。-->
             <% content.line_plans.each do |line_plan| %>
               <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-              <div class="col" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+              <div class="col mb-3" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
                 <%= render "layouts/line_plan-card", line_plan: line_plan %>
               </div>
             <% end %>
           <% end %>
           <% @line_plans.each do |line_plan| %>
             <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-            <div class="col" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+            <div class="col mb-3" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
               <%= render "layouts/line_plan-card", line_plan: line_plan %>
             </div>
           <% end %>

@@ -4,7 +4,7 @@ class Company < ApplicationRecord
   validates :name, presence: true
   validates :zip_code, presence: true, length: { is: 7 }, numericality: {only_integer: true}
   validates :address, presence: true
-  validates :telephone_number, presence: true, length: { is: 11 }, numericality: {only_integer: true}
+  validates :telephone_number, presence: true, length: { in: 10..11 }, numericality: {only_integer: true}
 
   has_one_attached :image
 
