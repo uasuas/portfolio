@@ -13,11 +13,10 @@
  *= require_tree .
  *= require_self
  */
- @import "sidebar";
- @import "public-top";
- @import "public-about";
- @import 'swiper/swiper-bundle';
-
+ @use "sidebar";
+ @use "public-top";
+ @use "public-about";
+ @use 'swiper/swiper-bundle';
 
 * {
   margin: 0;
