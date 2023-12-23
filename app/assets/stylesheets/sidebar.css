@@ -1,167 +1,167 @@
 /*サイドバー。*/
-/*.sidebar {*/
-/*  position: fixed;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  width: 110px;*/
-/*  height: 100%;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  flex-direction: column;*/
-/*  background: linear-gradient(-50deg, rgba(22, 135, 237, 0.6) 0%, rgba(195, 219, 255, 0.2) 100%);*/
-/*  backdrop-filter: blur(20px);*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(-50deg, rgba(22, 135, 237, 0.6) 0%, rgba(195, 219, 255, 0.2) 100%);
+  backdrop-filter: blur(20px);
   /* Safari用のプレフィックス */
-/*  --webkit-backdrop-filter: blur(20px);*/
-/*  border-right: 1px solid rgba(112, 175, 255, 0.8);*/
+  --webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(112, 175, 255, 0.8);
   /*0.3秒かけて広げる。*/
-/*  transition: width 0.3s ease;*/
+  transition: width 0.3s ease;
   /*スクロール追加。*/
-/*  overflow-y: auto;*/
-/*  z-index: 5;*/
-/*}*/
+  overflow-y: auto;
+  z-index: 5;
+}
 
-/*.open {*/
-/*  position: absolute;*/
-/*  top: 45%;*/
-/*  left: 50%;*/
-/*}*/
+.open {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+}
 
-/*.sidebar.active {*/
-/*  width: 260px;*/
-/*}*/
+.sidebar.active {
+  width: 260px;
+}
 
-/*.sidebar .logo {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  padding: 25px 10px 15px;*/
-/*}*/
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  padding: 25px 10px 15px;
+}
 
-/*.logo h2 {*/
-/*  font-weight: 600;*/
-/*  font-size: 1.2rem;*/
-/*  margin: 0 0 0 15px;*/
-/*  display: none;*/
-/*  color: #333;*/
-/*}*/
+.logo h2 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 0 15px;
+  display: none;
+  color: #333;
+}
 
-/*.sidebar.active .logo h2 {*/
-/*  display: block;*/
-/*}*/
+.sidebar.active .logo h2 {
+  display: block;
+}
 
-/*.sidebar .links {*/
-/*  height: calc(100 - 140px);*/
-/*  overflow-y: auto;*/
-/*  scrollbar-width: none;*/
-/*  list-style: none;*/
-/*  margin-top: 20px;*/
-/*}*/
+.sidebar .links {
+  height: calc(100 - 140px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  list-style: none;
+  margin-top: 20px;
+}
 
 /* スクロールバー非表示 */
-/*.sidebar .links::-webkit-scrollbar {*/
-/*  display: none;*/
-/*}*/
+.sidebar .links::-webkit-scrollbar {
+  display: none;
+}
 
-/*.sidebar .links h4 {*/
-/*  color: #333;*/
-/*  font-weight: 500;*/
-/*  margin-bottom: 10px;*/
-/*  display: none;*/
-/*}*/
+.sidebar .links h4 {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: none;
+}
 
-/*.sidebar.active .links h4 {*/
-/*  display: block;*/
-/*}*/
+.sidebar.active .links h4 {
+  display: block;
+}
 
-/*.links li {*/
-/*  text-align: left;*/
-/*}*/
+.links li {
+  text-align: left;
+}
 
-/*.links .menu {*/
-/*  margin-left: 1rem;*/
-/*}*/
+.links .menu {
+  margin-left: 1rem;
+}
 
-/*.sidebar li:hover {*/
-/*  background: white;*/
-/*  border-radius: 5px;*/
-/*}*/
+.sidebar li:hover {
+  background: white;
+  border-radius: 5px;
+}
 
-/*.links hr {*/
-/*  border-color: #333;*/
-/*  margin: 10px 8px;*/
-/*}*/
+.links hr {
+  border-color: #333;
+  margin: 10px 8px;
+}
 
-/*.sidebar.active .links hr {*/
-/*  border-color: transparent;*/
-/*}*/
+.sidebar.active .links hr {
+  border-color: transparent;
+}
 
-/*.links li span {*/
-/*  padding: 12px 10px;*/
-/*}*/
+.links li span {
+  padding: 12px 10px;
+}
 
-/*.links li span i {*/
-/*  color: #333;*/
-/*  font-size: 1.3rem;*/
-/*}*/
+.links li span i {
+  color: #333;
+  font-size: 1.3rem;
+}
 
-/*.links li a {*/
-/*  color: #333;*/
-/*  padding: 10px;*/
-/*  font-weight: 500;*/
-/*  white-space: nowrap;*/
-/*  text-decoration: none;*/
-/*  display: none;*/
-/*}*/
+.links li a {
+  color: #333;
+  padding: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  display: none;
+}
 
 /*サイドバー*/
-/*.sidebar.active .links li a {*/
-/*  display: block;*/
-/*}*/
+.sidebar.active .links li a {
+  display: block;
+}
 
 /*レスポンス時。*/
-/*@media screen and (min-width: 768px) {*/
-/*  .sidebar {*/
-/*    width: 50px;*/
-/*  }*/
-/*  .sidebar.active {*/
-/*    width: 200px;*/
-/*  }*/
-/*  .logo img {*/
-/*    width: 50px;*/
-/*  }*/
-/*}*/
+@media screen and (min-width: 768px) {
+  .sidebar {
+    width: 50px;
+  }
+  .sidebar.active {
+    width: 200px;
+  }
+  .logo img {
+    width: 50px;
+  }
+}
 
-/*@media screen and (max-width: 767px) {*/
-/*  .sidebar {*/
-/*    position: fixed;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 5%;*/
-/*    border-bottom: 1px solid rgba(112, 175, 255, 0.5);*/
-/*  }*/
+@media screen and (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid rgba(112, 175, 255, 0.5);
+  }
 /*表示サイズを上部で収める。*/
-/*  .sidebar.active {*/
-/*    height: 300px;*/
-/*    width: 100%;*/
-/*  }*/
+  .sidebar.active {
+    height: 300px;
+    width: 100%;
+  }
 /*中央寄せに変更。*/
-/*  .links .menu {*/
-/*    margin: 0;*/
-/*  }*/
-/*  .links li {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*  }*/
-/*  .sidebar .links h4 {*/
-/*    text-align: center;*/
-/*  }*/
-/*  .sidebar .logo {*/
-/*    padding: 10px 10px 15px;*/
-/*  }*/
-/*  .sidebar .links {*/
-/*    margin-top: 0;*/
-/*  }*/
-/*  .open {*/
-/*    top: -100%;*/
-/*  }*/
-/*}*/
+  .links .menu {
+    margin: 0;
+  }
+  .links li {
+    display: flex;
+    align-items: center;
+  }
+  .sidebar .links h4 {
+    text-align: center;
+  }
+  .sidebar .logo {
+    padding: 10px 10px 15px;
+  }
+  .sidebar .links {
+    margin-top: 0;
+  }
+  .open {
+    top: -100%;
+  }
+}
