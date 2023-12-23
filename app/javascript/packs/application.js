@@ -15,6 +15,7 @@ import "channels"
 import "script.js"
 import "sidebar.js"
 import "guestalert.js"
+import "backtop.js";
 import "jquery";
 import "popper.js";
 import "swiper.js"

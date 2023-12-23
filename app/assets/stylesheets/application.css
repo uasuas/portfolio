@@ -15,6 +15,7 @@
  */
  @import "sidebar";
  @import "public-top";
+ @import "public-about";
  @import 'swiper/swiper-bundle';
 
 * {
@@ -108,6 +109,16 @@ label {
   top: 5%;
 }
 
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+}
+#back img {
+  width: 30px;
+}
+
 /*formの設定。*/
 .image_tag {
   display: flex;
@@ -117,32 +128,6 @@ label {
 
 .form-row {
   margin-bottom: 10px;
-}
-
-.about-image {
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /*background-image: image-url("line.png");*/
-  background-image: url(line.png);
-}
-
-.about-guest-login {
-  position: absolute;
-  left: 60%;
-  top: 80%;
-  width: 140px;
-  margin-bottom: 10px;
-  color: rgba(13, 110, 253, 1);
-  background: #f0f0f0;
-  border: 1px solid rgba(112, 175, 255, 0.8);
-  text-decoration: none;
-}
-
-.about-guest-login:hover {
-  background: white;
-  color: rgba(13, 110, 253, 1);
 }
 
 /*modalの設定*/
@@ -167,7 +152,7 @@ label {
 
   .button_search {
     position: fixed;
-    right: 5%;
-    top: 90%;
+    right: 60%;
+    top: 94%;
   }
 }
