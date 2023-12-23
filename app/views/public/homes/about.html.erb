@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 mb-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-11 mb-3">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title marked-heading">About</h4>
@@ -11,13 +11,13 @@
             詳細な情報とユーザーの体験談を提供し、あなたが理想とする通信サービスを見つけるお手伝いをします。
           </p>
         </div>
-        <div class="row">
-          <div class="about-image col-11 col-md-6 mb-3">
+        <div class="row d-flex justify-content-center">
+          <div class="about-image col-11 col-lg-6 mb-3">
             <% unless admin_signed_in? || customer_signed_in? %>
               <%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "about-guest-login btn btn-sm btn-block mb-3 sign_in", method: :post %>
             <% end %>
           </div>
-          <div class="col-11 col-md-6 mb-3">
+          <div class="col-12 col-lg-6 mb-3">
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title marked-heading">ご利用方法</h4>

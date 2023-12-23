@@ -23,3 +23,9 @@
   background: white;
   color: rgba(13, 110, 253, 1);
 }
+
+@media screen and (max-width: 991px) {
+  .about-image {
+    height: 200px;
+  }
+}

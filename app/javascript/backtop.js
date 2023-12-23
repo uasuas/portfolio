@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   $('#back').hide();
   $(window).scroll(function() {
     if ($(this).scrollTop() > 0) {
