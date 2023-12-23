@@ -1,31 +1,31 @@
-.about-image {
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: image-url("line.png");
+/*.about-image {*/
+/*  width: 100%;*/
+/*  background-size: cover;*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  background-image: image-url("line.png");*/
   /*background-image: url(line.png);*/
-}
+/*}*/
 
-.about-guest-login {
-  position: absolute;
-  left: 60%;
-  top: 80%;
-  width: 140px;
-  margin-bottom: 10px;
-  color: rgba(13, 110, 253, 1);
-  background: #f0f0f0;
-  border: 1px solid rgba(112, 175, 255, 0.8);
-  text-decoration: none;
-}
+/*.about-guest-login {*/
+/*  position: absolute;*/
+/*  left: 60%;*/
+/*  top: 80%;*/
+/*  width: 140px;*/
+/*  margin-bottom: 10px;*/
+/*  color: rgba(13, 110, 253, 1);*/
+/*  background: #f0f0f0;*/
+/*  border: 1px solid rgba(112, 175, 255, 0.8);*/
+/*  text-decoration: none;*/
+/*}*/
 
-.about-guest-login:hover {
-  background: white;
-  color: rgba(13, 110, 253, 1);
-}
+/*.about-guest-login:hover {*/
+/*  background: white;*/
+/*  color: rgba(13, 110, 253, 1);*/
+/*}*/
 
-@media screen and (max-width: 991px) {
-  .about-image {
-    height: 200px;
-  }
-}
+/*@media screen and (max-width: 991px) {*/
+/*  .about-image {*/
+/*    height: 200px;*/
+/*  }*/
+/*}*/

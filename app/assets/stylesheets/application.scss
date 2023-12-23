@@ -13,152 +13,152 @@
  *= require_tree .
  *= require_self
  */
- @use "sidebar";
- @use "public-top";
- @use "public-about";
- @use 'swiper/swiper-bundle';
+// @use "sidebar";
+// @use "public-top";
+// @use "public-about";
+// @use 'swiper/swiper-bundle';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
 
-html, body {
-  min-height: 100vh;
-}
+// html, body {
+//   min-height: 100vh;
+// }
 
-body {
-  background: linear-gradient(rgba(195, 219, 255, 0.2) 0%, rgba(22, 135, 237, 0.6) 100%);
-  object-fit: cover;
-}
+// body {
+//   background: linear-gradient(rgba(195, 219, 255, 0.2) 0%, rgba(22, 135, 237, 0.6) 100%);
+//   object-fit: cover;
+// }
 
-.container-fluid > .row, .container > .row {
-  padding: 30px 0 0 30px;
-}
+// .container-fluid > .row, .container > .row {
+//   padding: 30px 0 0 30px;
+// }
 
-footer {
-  position: sticky;
-  /*footerの大きさ分引いた位置に設置。*/
-  top: calc(100vh - 72px);
-  backdrop-filter: blur(200px);
-  -webkit-backdrop-filter: blur(200px);
-  background-color: rgba(255, 255, 255, 0.2);
-}
+// footer {
+//   position: sticky;
+//   /*footerの大きさ分引いた位置に設置。*/
+//   top: calc(100vh - 72px);
+//   backdrop-filter: blur(200px);
+//   -webkit-backdrop-filter: blur(200px);
+//   background-color: rgba(255, 255, 255, 0.2);
+// }
 
-label {
-  margin: 0;
-}
+// label {
+//   margin: 0;
+// }
 
-#flash {
-  position:  absolute;
-  width: 100%;
-}
+// #flash {
+//   position:  absolute;
+//   width: 100%;
+// }
 
-.table {
-  margin: 0;
-}
+// .table {
+//   margin: 0;
+// }
 
-.table thead th, .table tbody td, .table th {
-  border-top: 0;
-  border-bottom: 2px solid rgba(97, 121, 115, 0.5);
-}
+// .table thead th, .table tbody td, .table th {
+//   border-top: 0;
+//   border-bottom: 2px solid rgba(97, 121, 115, 0.5);
+// }
 
-#tab-menu li a {
-  background-color: rgba(22, 135, 237, 0.6);
-  border: 1px solid rgba(195, 219, 255, 0.2);
-}
+// #tab-menu li a {
+//   background-color: rgba(22, 135, 237, 0.6);
+//   border: 1px solid rgba(195, 219, 255, 0.2);
+// }
 
-#tab-contents .tab {
-  border: 1px solid rgba(195, 219, 255, 0.2);
-}
+// #tab-contents .tab {
+//   border: 1px solid rgba(195, 219, 255, 0.2);
+// }
 
-.button_search {
-  position: absolute;
-  right: 50px;
-  top: 35px;
-  background: #f0f0f0;
-  border: 1px solid rgba(112, 175, 255, 0.8);
-  border-radius: 10px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+// .button_search {
+//   position: absolute;
+//   right: 50px;
+//   top: 35px;
+//   background: #f0f0f0;
+//   border: 1px solid rgba(112, 175, 255, 0.8);
+//   border-radius: 10px;
+//   backdrop-filter: blur(20px);
+//   -webkit-backdrop-filter: blur(20px);
+// }
 
-.button_search:hover {
-  background: white;
-}
+// .button_search:hover {
+//   background: white;
+// }
 
-.card {
-  position: relative;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 10px #ccc;
-  border: 1px solid rgba(112, 175, 255, 0.8);
-  border-radius: 10px;
-  background-image:
-    linear-gradient(135deg, #3998db 0 2rem, transparent 2rem),
-    linear-gradient(-45deg, #95a9e3 0 2rem, transparent 2rem);
-}
+// .card {
+//   position: relative;
+//   padding: 1rem 1.5rem;
+//   margin-bottom: 1rem;
+//   box-shadow: 0 0 10px #ccc;
+//   border: 1px solid rgba(112, 175, 255, 0.8);
+//   border-radius: 10px;
+//   background-image:
+//     linear-gradient(135deg, #3998db 0 2rem, transparent 2rem),
+//     linear-gradient(-45deg, #95a9e3 0 2rem, transparent 2rem);
+// }
 
-.side-content {
-  min-height: 100%;
-}
+// .side-content {
+//   min-height: 100%;
+// }
 
-.side-content-sticky {
-  position: sticky;
-  top: 5%;
-}
+// .side-content-sticky {
+//   position: sticky;
+//   top: 5%;
+// }
 
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 10;
-}
-#back img {
-  width: 30px;
-}
+// #back {
+//   position: fixed;
+//   right: 20px;
+//   bottom: 20px;
+//   z-index: 10;
+// }
+// #back img {
+//   width: 30px;
+// }
 
-/*formの設定。*/
-.image_tag {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// /*formの設定。*/
+// .image_tag {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
-.form-row {
-  margin-bottom: 10px;
-}
+// .form-row {
+//   margin-bottom: 10px;
+// }
 
-/*modalの設定*/
-.modal-header {
-  border-bottom: none;
-}
+// /*modalの設定*/
+// .modal-header {
+//   border-bottom: none;
+// }
 
-.marked-heading {
-  background: linear-gradient(rgba(195, 219, 255, 0.2) 0%, rgba(22, 135, 237, 0.6) 100%);
-  text-align: center;
-  margin-bottom: 20px;
-}
+// .marked-heading {
+//   background: linear-gradient(rgba(195, 219, 255, 0.2) 0%, rgba(22, 135, 237, 0.6) 100%);
+//   text-align: center;
+//   margin-bottom: 20px;
+// }
 
-/*レスポンス時。*/
-@media screen and (min-width: 768px) {
-}
+// /*レスポンス時。*/
+// @media screen and (min-width: 768px) {
+// }
 
-@media screen and (max-width: 767px) {
-  .container-fluid > .row, .container > .row {
-    padding: 60px 0 0;
-  }
+// @media screen and (max-width: 767px) {
+//   .container-fluid > .row, .container > .row {
+//     padding: 60px 0 0;
+//   }
 
-  .button_search {
-    right: 70%;
-    top: 94%;
-  }
-}
+//   .button_search {
+//     right: 70%;
+//     top: 94%;
+//   }
+// }
 
-@media screen and (max-width: 500px) {
-  .button_search {
-    right: 60%;
-    top: 94%;
-  }
-}
+// @media screen and (max-width: 500px) {
+//   .button_search {
+//     right: 60%;
+//     top: 94%;
+//   }
+// }
