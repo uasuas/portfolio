@@ -5,10 +5,10 @@
     <div>
       <%= form_with model: [line_plan, review], url: line_plan_reviews_path(line_plan), method: :post, local: false do |f| %>
         <div class="form-row align-items-center">
-          <div class="col-1 text-center">
+          <div class="col-2 col-sm-1 text-center">
             <%= f.label :star, "評価" %>
           </div>
-          <div class="col-5">
+          <div class="col-8 col-sm-5">
             <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
             <div id="post_raty"></div>
           </div>
