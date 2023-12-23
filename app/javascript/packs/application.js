@@ -22,7 +22,6 @@ import "swiper.js"
 import Swiper from 'swiper/swiper-bundle.js';
 import 'swiper/swiper-bundle.css';
 // import "bootstrap";
-import "../stylesheets/application";
 
 Rails.start()
 Turbolinks.start()
