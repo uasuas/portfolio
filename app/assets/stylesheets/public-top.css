@@ -30,6 +30,19 @@
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
+@media screen and ( max-width: 1024px){
+  .top-title{
+    animation: shrinkAnimation1024 3s linear forwards;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .top-title{
+    animation: shrinkAnimation700 3s linear fowards;
+  }
+}
+
+
 @keyframes shrinkAnimation {
   0% {
     /* 開始時のフォントサイズ */
@@ -128,17 +141,6 @@
     top: 40%;
     width: 60%;
   }
-
-  @keyframes shrinkAnimation {
-    0% {
-      /* 開始時のフォントサイズ */
-      font-size: 50px;
-    }
-    100% {
-      /* 終了時のフォントサイズ */
-      font-size: 20px;
-    }
-  }
 }
 
 @media screen and (max-width: 900px) {
@@ -166,15 +168,26 @@
   .swiper-style {
     opacity: 0;
   }
+}
 
-  @keyframes shrinkAnimation {
-    0% {
-      /* 開始時のフォントサイズ */
-      font-size: 36px;
-    }
-    100% {
-      /* 終了時のフォントサイズ */
-      font-size: 13px;
-    }
+@keyframes shrinkAnimation1024 {
+  0% {
+    /* 開始時のフォントサイズ */
+    font-size: 50px;
+  }
+  100% {
+    /* 終了時のフォントサイズ */
+    font-size: 20px;
+  }
+}
+
+@keyframes shrinkAnimation700 {
+  0% {
+    /* 開始時のフォントサイズ */
+    font-size: 36px;
+  }
+  100% {
+    /* 終了時のフォントサイズ */
+    font-size: 13px;
   }
 }
