@@ -1,6 +1,6 @@
 class Public::LinePlansController < ApplicationController
   def index
-    @line_plans = LinePlan.all
+    @line_plans = LinePlan.page(params[:page])
   end
 
   def show

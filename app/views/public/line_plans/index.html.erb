@@ -2,14 +2,18 @@
   <div class="row">
     <div class="col">
       <h2>回線プラン一覧</h2>
-      <div class="row row-cols-1 row-cols-md-2">
+      <div class="infinite row row-cols-1 row-cols-md-2">
         <% @line_plans.each do |line_plan| %>
           <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-          <div class="col mb-3" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
+          <div class="content_infinite col mb-3" onclick="window.location='<%= line_plan_path(line_plan) %>'" role="link">
             <%= render "layouts/line_plan-card", line_plan: line_plan %>
           </div>
         <% end %>
       </div>
+      <div class="paginate">
+        <%= paginate @line_plans %>
+      </div>
     </div>
   </div>
 </div>
+<!--<script src="/path/to/infinite-scroll.pkgd.min.js"></script>-->

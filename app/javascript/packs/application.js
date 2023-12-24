@@ -19,6 +19,7 @@ import "backtop.js";
 import "jquery";
 import "popper.js";
 import "swiper.js"
+import "infinite-scroll.js";
 import Swiper from 'swiper/swiper-bundle.js';
 import 'swiper/swiper-bundle.css';
 // import "bootstrap";

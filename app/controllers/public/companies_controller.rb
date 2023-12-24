@@ -1,6 +1,6 @@
 class Public::CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.page(params[:page])
   end
 
   def show

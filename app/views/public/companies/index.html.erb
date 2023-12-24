@@ -2,13 +2,16 @@
   <div class="row">
     <div class="col">
       <h2>回線会社一覧</h2>
-      <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+      <div class="infinite row row-cols-1 row-cols-md-2 row-cols-xl-3">
         <% @companies.each do |company| %>
           <!--テーブル全体をリンクに変更し、カーソルを乗せた際にカーソル変化とハイライトする。-->
-          <div class="col mb-3" onclick="window.location='<%= company_path(company) %>'" role="link">
+          <div class="content_infinite col mb-3" onclick="window.location='<%= company_path(company) %>'" role="link">
             <%= render "public/companies/company-card", company: company %>
           </div>
         <% end %>
+      </div>
+      <div class="paginate">
+        <%= paginate @companies %>
       </div>
     </div>
   </div>
