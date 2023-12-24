@@ -26,7 +26,7 @@ class Admin::LinePlansController < ApplicationController
       flash.now[:notice] = "回線プランを登録しました。"
       redirect_to admin_line_plan_path(@line_plan)
     else
-      flash.now[:alert] = "必要事項をご確認してください。"
+      flash.now[:alert] = "必要事項を確認してください。"
       render :new
     end
   end
@@ -36,7 +36,7 @@ class Admin::LinePlansController < ApplicationController
     # 配列で空の場合、[""]が送られてきている為[0]ではなく[1]を.blank?で確認。
     if params[:line_plan][:area_ids][1].blank? || params[:line_plan][:content_ids][1].blank?
     # if @line_plan.area_ids.empty? || @line_plan.content_ids.empty?
-      flash.now[:alert] = "必要事項をご確認してください。"
+      flash.now[:alert] = "必要事項を確認してください。"
       render :edit
       return
     end
@@ -44,7 +44,7 @@ class Admin::LinePlansController < ApplicationController
       flash[:notice] = "回線プラン情報を更新しました。"
       redirect_to admin_line_plan_path(@line_plan)
     else
-      flash.now[:alert] = "必要事項をご確認してください。"
+      flash.now[:alert] = "必要事項を確認してください。"
       render :edit
     end
   end

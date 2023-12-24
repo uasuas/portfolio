@@ -15,7 +15,7 @@ class Admin::CompaniesController < ApplicationController
     if @company.save
       redirect_to admin_company_path(@company), notice: "回線企業の登録が完了しました。"
     else
-      flash.now[:alert] = "必要事項をご確認してください。"
+      flash.now[:alert] = "必要事項を確認してください。"
       render :new
     end
   end
@@ -24,7 +24,7 @@ class Admin::CompaniesController < ApplicationController
     if @company.update(company_params)
       redirect_to admin_company_path(@company), notice: "回線企業情報の更新が完了しました。"
     else
-      flash.now[:alert] = "必要事項をご確認してください。"
+      flash.now[:alert] = "必要事項を確認してください。"
       render :edit
     end
   end

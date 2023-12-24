@@ -8,7 +8,7 @@ class Public::ReviewsController < ApplicationController
       @messege = "レビューを投稿しました。"
     else
       # 非同期通信でメッセージをJS書き換える内容。
-      @messege = "入力項目を確認してください。"
+      @messege = "入力項目をご確認ください。"
     end
     # リクエストの形式をjsでレンダリングする為にrespond_toを使用。
     respond_to do |format|

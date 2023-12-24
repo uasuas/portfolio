@@ -8,7 +8,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to mypage_customers_path, notice: '会員情報を更新しました。'
     else
-      redirect_to mypage_customers_path, notice: '必要事項をご確認してください。'
+      redirect_to mypage_customers_path, alert: '入力項目をご確認ください。'
     end
   end
 

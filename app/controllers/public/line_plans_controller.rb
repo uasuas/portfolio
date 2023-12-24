@@ -59,6 +59,8 @@ class Public::LinePlansController < ApplicationController
       common_line_plan_ids = []
     end
 
+    @line_plans = LinePlan.where(id: common_line_plan_ids)
+
     # 上記の確認後、料金の絞り込みに入り、受け取ったminまたはmaxの情報の有無によって処理を行う。
     min_search = params[:min_search]
     max_search = params[:max_search]
