@@ -11,10 +11,10 @@
               退会する場合は、「退会する」をクリックしてください。
             </p>
             <div>
-              <%= link_to mypage_customers_path, class:"btn btn-info mx-4" do %>
+              <%= link_to mypage_customers_path, class:"btn btn-info mx-3" do %>
                 退会しない
               <% end %>
-              <%= link_to leave_customers_path, method: :patch, data: { confirm: "本当に退会しますか？"}, class: "btn btn-danger mx-4" do %>
+              <%= link_to leave_customers_path, method: :patch, data: { confirm: "本当に退会しますか？"}, class: "btn btn-danger mx-3" do %>
                 退会する
               <% end %>
             </div>
