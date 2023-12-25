@@ -17,7 +17,7 @@
             <h4>エリア（複数選択可）</h4>
           </div>
           <% Area.all.each do |area| %>
-            <div class="col-3 text-center">
+            <div class="col-3 p-0 text-center">
               <%= check_box :area_ids, area.area %>
               <%= area.area %>
             </div>
@@ -28,7 +28,7 @@
             <h4>コンテンツ（複数選択可）</h4>
           </div>
           <% Content.all.each do |content| %>
-            <div class="col-4 text-center">
+            <div class="mx-auto p-0 text-center">
               <%= check_box :content_ids, content.content %>
               <%= content.content %>
             </div>
