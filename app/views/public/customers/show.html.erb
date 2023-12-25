@@ -6,13 +6,13 @@
         <div class="col-12 col-lg-4">
           <div class="row d-flex justify-content-center align-items-center">
             <div class="col-5 col-lg-11 offset-1">
-              <h5 class="">お名前</h5>
+              <h5>お名前</h5>
               <p class="ml-5"><%= current_customer.name %></p>
-              <h5 class="">メールアドレス</h5>
+              <h5>メールアドレス</h5>
               <p class="ml-5"><%= current_customer.email %></p>
               <% if @customer.email != "guest@example.com" %>
-                <h5 class="">レビュー件数</h5>
-                <p class="ml-5"><%= current_customer.reviews.count %>件</p>
+                <h5>レビュー件数</h5>
+                <p id="review-count" class="ml-5"><%= render "public/customers/review-count" %></p>
               <% end %>
             </div>
             <div class="col-6 col-lg-11">
