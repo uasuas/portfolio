@@ -29,3 +29,9 @@
     height: 200px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .about-guest-login {
+    left: 50%;
+  }
+}
