@@ -51,8 +51,9 @@ label {
 }
 
 #flash {
-  position:  absolute;
+  position: fixed;
   width: 100%;
+  z-index: 15;
 }
 
 .table {
