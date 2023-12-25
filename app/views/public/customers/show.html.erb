@@ -5,17 +5,15 @@
       <div class="row">
         <div class="col-12 col-lg-4">
           <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-5 col-lg-11 offset-1">
-              <h5>お名前</h5>
-              <p class="ml-5"><%= current_customer.name %></p>
-              <h5>メールアドレス</h5>
-              <p class="ml-5"><%= current_customer.email %></p>
-              <% if @customer.email != "guest@example.com" %>
-                <h5>レビュー件数</h5>
-                <p id="review-count" class="ml-5"><%= render "public/customers/review-count" %></p>
-              <% end %>
-            </div>
-            <div class="col-6 col-lg-11">
+            <h5 class="col-5 col-lg-12">お名前</h5>
+            <p class="col-7 col-lg-11 offset-lg-1"><%= current_customer.name %></p>
+            <h5 class="col-5 col-lg-12">メールアドレス</h5>
+            <p class="col-7 col-lg-11 offset-lg-1"><%= current_customer.email %></p>
+            <% if @customer.email != "guest@example.com" %>
+              <h5 class="col-5 col-lg-12">レビュー件数</h5>
+              <p id="review-count" class="col-7 col-lg-11 offset-lg-1"><%= render "public/customers/review-count" %></p>
+            <% end %>
+            <div class="col-10">
               <% if @customer.email != "guest@example.com" %>
                 <!--モーダルボタン-->
                 <div class="button_new mb-3">
