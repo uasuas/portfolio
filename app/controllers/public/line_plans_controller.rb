@@ -19,7 +19,6 @@ class Public::LinePlansController < ApplicationController
     @contents = Content.where("content LIKE ?", "%#{@word}%")
     @line_plans = LinePlan.all
 
-
     if params[:area_ids].present?
       # search結果に複数のパターンがあるため、モーダルのフォームにて絞り込みをした際に他の結果を空にする処理。
       @areas = []
@@ -59,7 +58,11 @@ class Public::LinePlansController < ApplicationController
       common_line_plan_ids = []
     end
 
-    @line_plans = LinePlan.where(id: common_line_plan_ids)
+    if common_line_plan_ids.any?
+      @line_plans = LinePlan.where(id: common_line_plan_ids)
+    else
+      @line_plans = LinePlan.all
+    end
 
     # 上記の確認後、料金の絞り込みに入り、受け取ったminまたはmaxの情報の有無によって処理を行う。
     min_search = params[:min_search]
