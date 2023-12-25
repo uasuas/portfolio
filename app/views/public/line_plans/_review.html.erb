@@ -27,7 +27,9 @@
               raty(elem, opt);
             });
           </script>
-          <%= f.text_area :content, rows: '5', placeholder: "内容を入力してください。", class:"w-100" %><br/>
+          <div class="col-12">
+            <%= f.text_area :content, rows: '5', placeholder: "内容を入力してください。", class:"w-100" %><br/>
+          </div>
           <%= f.submit "送信", class:"my-3 btn btn-info" %>
         </div>
       <% end %>
