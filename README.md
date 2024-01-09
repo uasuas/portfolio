@@ -16,7 +16,7 @@
 - 契約更新時　
 - 迷った際の検索時
 ## 設計書
-
+![ER Diagram](https://github.com/uasuas/portfolio/blob/main/portfolio%EF%BC%88ER%E5%9B%B3%EF%BC%89.drawio.svg)
 ​
 ## 開発環境
 - OS：Linux(CentOS)
