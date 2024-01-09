@@ -19,7 +19,7 @@
           <% Area.all.each do |area| %>
             <div class="col-3 p-0 text-center">
               <%= check_box :area_ids, area.area %>
-              <%= area.area %>
+              <%= label :area_ids, area.area %>
             </div>
           <% end %>
         </div>
@@ -30,7 +30,7 @@
           <% Content.all.each do |content| %>
             <div class="mx-auto p-0 text-center">
               <%= check_box :content_ids, content.content %>
-              <%= content.content %>
+              <%= label :content_ids, content.content %>
             </div>
           <% end %>
         </div>
