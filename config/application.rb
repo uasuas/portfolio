@@ -11,6 +11,7 @@ module IdealConnect
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
     # Active Storageのルーティングが、通常の設定ではroutes.rbよりあとに来てしまうので、
     # 例外処理のURLの処理がActive Storageの画像を取り出す前に、行われてしまいイメージが表示されない為、
     # Active Storageを先にロードする為の記述。
